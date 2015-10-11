@@ -33,7 +33,6 @@ int main() {
 	IPIMS_Group9::UpdateHealthcareCondition formUpdateHealthcareCondition;
 	Application::Run(%formUpdateHealthcareCondition);
 		
-	/*
 	IPIMS_Group9::PatientSearch formPatientSearch;
 	Application::Run(%formPatientSearch);
 
@@ -48,6 +47,5 @@ int main() {
 	
 	IPIMS_Group9::EPrescription formEPrescription;
 	Application::Run(%formEPrescription);
-	*/
 
 }
