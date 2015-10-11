@@ -1,3 +1,7 @@
+#include "ScheduleAppointment.h"
+#include "ViewAppointments.h"
+#include "UpdateHealthcareCondition.h"
+
 #pragma once
 // Implementation next week 
 namespace IPIMS_Group9 {
@@ -578,5 +582,26 @@ namespace IPIMS_Group9 {
 
 		}
 #pragma endregion
+
+
+	private: System::Void scheduleToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+		IPIMS_Group9::ScheduleAppointment^ formScheduleAppt = gcnew ScheduleAppointment();
+		this->Hide();
+		formScheduleAppt->ShowDialog();
+		this->Show();
+	}
+	private: System::Void updatePatientToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+		IPIMS_Group9::UpdateHealthcareCondition^ formUpdateHealthcare = gcnew UpdateHealthcareCondition();
+		this->Hide();
+		formUpdateHealthcare->ShowDialog();
+		this->Show();
+	}
+	private: System::Void viewToolStripMenuItem1_Click(System::Object^  sender, System::EventArgs^  e) {
+		IPIMS_Group9::ViewAppointments^ formViewAppts = gcnew ViewAppointments();
+		this->Hide();
+		formViewAppts->ShowDialog();
+		this->Show();
+	}
+
 	};
 }

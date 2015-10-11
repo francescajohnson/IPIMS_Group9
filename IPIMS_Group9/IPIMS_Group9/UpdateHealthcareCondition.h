@@ -1,3 +1,5 @@
+//#include "ScheduleAppointment.h"
+
 #pragma once
 
 namespace IPIMS_Group9 {
@@ -455,5 +457,19 @@ namespace IPIMS_Group9 {
 	}
 	private: System::Void checkBoxEmergencyAlert_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 	}
+			 /*
+	private: System::Void scheduleToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+		IPIMS_Group9::ScheduleAppointment^ formScheduleAppt = gcnew ScheduleAppointment();
+		this->Hide();
+		formScheduleAppt->ShowDialog();
+		this->Show();
+	}
+
+	private: System::Void viewToolStripMenuItem1_Click(System::Object^  sender, System::EventArgs^  e) {
+		IPIMS_Group9::ViewAppointments^ formViewAppts = gcnew ViewAppointments();
+		this->Hide();
+		formViewAppts->ShowDialog();
+		this->Show();
+	}*/
 	};
 }

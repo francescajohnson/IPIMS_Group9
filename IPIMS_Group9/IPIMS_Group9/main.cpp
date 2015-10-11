@@ -17,22 +17,22 @@ int main() {
 
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-
+	
 	IPIMS_Group9::LoggingIn formLoggingIn;
 	Application::Run(%formLoggingIn);
 
 	IPIMS_Group9::Registration formRegistration;
 	Application::Run(%formRegistration);
-	
+
+	IPIMS_Group9::ScheduleAppointment formScheduleAppointment;
+	Application::Run(%formScheduleAppointment);
+
 	IPIMS_Group9::ViewAppointments formViewAppointments;
 	Application::Run(%formViewAppointments);
 
 	IPIMS_Group9::UpdateHealthcareCondition formUpdateHealthcareCondition;
 	Application::Run(%formUpdateHealthcareCondition);
-
-	IPIMS_Group9::ScheduleAppointment formScheduleAppointment;
-	Application::Run(%formScheduleAppointment);
-	
+		
 	/*
 	IPIMS_Group9::PatientSearch formPatientSearch;
 	Application::Run(%formPatientSearch);

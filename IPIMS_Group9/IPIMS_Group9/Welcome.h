@@ -66,6 +66,7 @@ namespace IPIMS_Group9 {
 	private: System::Windows::Forms::ToolStripMenuItem^  logoutOfIPIMSToolStripMenuItem;
 	private: System::Windows::Forms::Label^  labelPleaseSelectMenuOption;
 	private: System::Windows::Forms::Label^  labelWelcome;
+	private: System::Windows::Forms::Label^  label1;
 
 	private:
 		/// <summary>
@@ -107,6 +108,7 @@ namespace IPIMS_Group9 {
 			this->logoutOfIPIMSToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->labelPleaseSelectMenuOption = (gcnew System::Windows::Forms::Label());
 			this->labelWelcome = (gcnew System::Windows::Forms::Label());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->menuStrip->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -159,14 +161,14 @@ namespace IPIMS_Group9 {
 			// viewToolStripMenuItem1
 			// 
 			this->viewToolStripMenuItem1->Name = L"viewToolStripMenuItem1";
-			this->viewToolStripMenuItem1->Size = System::Drawing::Size(152, 22);
+			this->viewToolStripMenuItem1->Size = System::Drawing::Size(122, 22);
 			this->viewToolStripMenuItem1->Text = L"View";
 			this->viewToolStripMenuItem1->Click += gcnew System::EventHandler(this, &Welcome::viewToolStripMenuItem1_Click);
 			// 
 			// scheduleToolStripMenuItem
 			// 
 			this->scheduleToolStripMenuItem->Name = L"scheduleToolStripMenuItem";
-			this->scheduleToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+			this->scheduleToolStripMenuItem->Size = System::Drawing::Size(122, 22);
 			this->scheduleToolStripMenuItem->Text = L"Schedule";
 			this->scheduleToolStripMenuItem->Click += gcnew System::EventHandler(this, &Welcome::scheduleToolStripMenuItem_Click);
 			// 
@@ -315,11 +317,23 @@ namespace IPIMS_Group9 {
 			this->labelWelcome->Text = L"Welcome";
 			this->labelWelcome->Click += gcnew System::EventHandler(this, &Welcome::labelWelcome_Click);
 			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Goudy Stout", 12, System::Drawing::FontStyle::Underline));
+			this->label1->ForeColor = System::Drawing::Color::Red;
+			this->label1->Location = System::Drawing::Point(130, 471);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(452, 22);
+			this->label1->TabIndex = 35;
+			this->label1->Text = L"Display Emergency Alerts";
+			// 
 			// Welcome
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(594, 502);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->labelPleaseSelectMenuOption);
 			this->Controls->Add(this->labelWelcome);
 			this->Controls->Add(this->menuStrip);
