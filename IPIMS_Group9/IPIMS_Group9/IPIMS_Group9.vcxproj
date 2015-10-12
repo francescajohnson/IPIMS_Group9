@@ -92,6 +92,7 @@
     <ClCompile Include="Welcome.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="classificationenummap.h" />
     <ClInclude Include="EPrescription.h">
       <FileType>CppForm</FileType>
     </ClInclude>

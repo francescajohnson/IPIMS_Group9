@@ -45,6 +45,9 @@
     <ClInclude Include="EPrescription.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="classificationenummap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Welcome.cpp">
@@ -95,6 +98,12 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="Welcome.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmergencyAlert.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateHealthcareCondition.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>
