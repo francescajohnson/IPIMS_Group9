@@ -476,6 +476,50 @@ namespace IPIMS_Group9 {
 	}
 	private: System::Void checkBoxEmergencyAlert_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 	}
+
+			 /*	KAVITAS CODE:::
+			 private: System::Void buttonSave_Click(System::Object^  sender, System::EventArgs^  e) {
+		String^ constring = L"datasource=localhost;port=3306;username=root;password=Group9IPIMS";
+		MySqlConnection^ conDataBase = gcnew MySqlConnection(constring);
+		MySqlCommand^ cmdDataBase = gcnew MySqlCommand("insert into test.group9ipims (FirstName,DOB,Symptoms,Emergency) values ('"+this->textBoxFirstName->Text+"','"+this->textBoxDateOfBirth->Text+"','"+this->textBoxSymptoms->ResetText+"','"+this->checkBoxEmergencyAlert->Text+"');", conDataBase);
+		MySqlDataReader^ myReader;
+		
+
+
+		if (textBoxSymptoms->Text)
+		{
+			if (checkBoxEmergencyAlert->Checked)
+				MessageBox::Show("Our staff will contact you as soon as possible");
+
+			else
+				MessageBox::Show("The symptoms have been saved.");
+		}
+		else
+			MessageBox::Show("Please enter data");
+	}
+	private: System::Void buttonClear_Click(System::Object^  sender, System::EventArgs^  e) {
+		this->textBoxSymptoms->Text = "";
+		this->checkBoxEmergencyAlert->Checked = false;
+
+	}
+
+	private: System::Void textBoxSymptoms_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+
+
+	}
+	private: System::Void checkBoxEmergencyAlert_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void labelSymptoms_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+private: System::Void textBoxFirstName_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+
+*/
+
+
+
+
+
 			 /*
 	private: System::Void scheduleToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 		IPIMS_Group9::ScheduleAppointment^ formScheduleAppt = gcnew ScheduleAppointment();

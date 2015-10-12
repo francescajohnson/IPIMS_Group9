@@ -569,6 +569,7 @@ namespace IPIMS_Group9 {
 			this->buttonRegister->Text = L"Register";
 			this->buttonRegister->UseVisualStyleBackColor = true;
 			this->buttonRegister->Click += gcnew System::EventHandler(this, &Registration::buttonRegister_Click);
+			this->buttonRegister->Enter += gcnew System::EventHandler(this, &Registration::buttonRegister_Click);
 			// 
 			// groupBoxMedicalInformation
 			// 
