@@ -559,6 +559,7 @@ namespace IPIMS_Group9 {
 			this->buttonRegister->TabIndex = 17;
 			this->buttonRegister->Text = L"Register";
 			this->buttonRegister->UseVisualStyleBackColor = true;
+			this->buttonRegister->Click += gcnew System::EventHandler(this, &Registration::buttonRegister_Click_1);
 			// 
 			// groupBoxMedicalInformation
 			// 
@@ -717,32 +718,30 @@ namespace IPIMS_Group9 {
 	}
 	private: System::Void buttonRegister_Click(System::Object^  sender, System::EventArgs^  e) {
 
-		first_name.ToString(this->textBoxFirstName->Text);
-		last_name.ToString(this->textBoxLastName->Text);
-		date_of_birth.ToString(this->textBoxDateOfBirth->Text);
-		social_security_number.ToString(this->textBoxIdNumber->Text);
-		street_address.ToString(this->textBoxStreetAddress->Text);
-		city.ToString(this->textBoxCity->Text);
-		state.ToString(this->textBoxState->Text);
-		zip_code.ToString(this->textBoxZipCode->Text);
-		phone_number.ToString(this->textBoxPhoneNumber->Text);
-		email.ToString(this->textBoxEmailAddress->Text);
-		username.ToString(this->textBoxUsername->Text);
-		password.ToString(this->textBoxPassword->Text);
-		insurance_provider.ToString(this->textBoxHealthInsurance->Text);
-		insurance_contact.ToString(this->textBoxHealthInsuranceNumber->Text);
+		//first_name.ToString(this->textBoxFirstName->Text);
+		//last_name.ToString(this->textBoxLastName->Text);
+		//date_of_birth.ToString(this->textBoxDateOfBirth->Text);
+		//social_security_number.ToString(this->textBoxIdNumber->Text);
+		//street_address.ToString(this->textBoxStreetAddress->Text);
+		//city.ToString(this->textBoxCity->Text);
+		//state.ToString(this->textBoxState->Text);
+		//zip_code.ToString(this->textBoxZipCode->Text);
+		//phone_number.ToString(this->textBoxPhoneNumber->Text);
+		//email.ToString(this->textBoxEmailAddress->Text);
+		//username.ToString(this->textBoxUsername->Text);
+		//password.ToString(this->textBoxPassword->Text);
+		//insurance_provider.ToString(this->textBoxHealthInsurance->Text);
+		//insurance_contact.ToString(this->textBoxHealthInsuranceNumber->Text);
 
 		switch (MessageBox::Show("Would you like to login as this user now?", "Do you want to Login?", MessageBoxButtons::YesNoCancel, MessageBoxIcon::Question)) {
 		case (::System::Windows::Forms::DialogResult::Yes) : {
 			this->Hide();
 			String^ constring = L"datasource=localhost;port=3306;username=root;password=Group9IPIMS";
-
 			MySqlConnection^ conDataBase = gcnew MySqlConnection(constring);
+			/*MySqlCommand^ cmdDataBase = gcnew MySqlCommand("INSERT INTO `group9_ipims`.`user_data` (`classification`, `first_name`,	`last_name`, `gender`,`date_of_birth`, `social_security_number`, `street_address`, `city`, `state`, `zip_code`, `phone_number`, `email`, `username`, `password`, `insurance_provider`, `insurance_contact`) VALUES (classification, '" + first_name + "', '" + last_name + "', '" + gender + "', '" + date_of_birth + "', '" + social_security_number + "', '" + street_address + "', '" + city + "', '" + state + "', '" + zip_code + "', '" + phone_number + "', '" + email + "', '" + username + "', '" + password + "', '" + insurance_provider + "', '" + insurance_contact + "'); ", conDataBase);*/
+			MySqlCommand^ cmdDataBase = gcnew MySqlCommand("INSERT INTO `group9_ipims`.`user_data` (`classification`, `first_name`,	`last_name`, `gender`,`date_of_birth`, `social_security_number`, `street_address`, `city`, `state`, `zip_code`, `phone_number`, `email`, `username`, `password`, `insurance_provider`, `insurance_contact`) VALUES (classification, '" + this->textBoxFirstName->Text + "', '" + this->textBoxLastName->Text + "',gender, '" + this->textBoxDateOfBirth->Text + "', '" + this->textBoxIdNumber->Text + "', '" + this->textBoxStreetAddress->Text + "', '" + this->textBoxCity->Text + "', '" + this->textBoxState->Text + "', '" + this->textBoxZipCode->Text + "', '" + this->textBoxPhoneNumber->Text + "', '" + textBoxEmailAddress + "', '" + this->textBoxUsername->Text + "', '" + this->textBoxPassword->Text + "', '" + this->textBoxHealthInsurance->Text + "', '" + textBoxHealthInsuranceNumber + "'); ", conDataBase);
 
-			MySqlCommand^ cmdDataBase = gcnew MySqlCommand("INSERT INTO `group9_ipims`.`user_data` (`classification`, `first_name`,	`last_name`, `gender`,`date_of_birth`, `social_security_number`, `street_address`, `city`, `state`, `zip_code`, `phone_number`, `email`, `username`, `password`, `insurance_provider`, `insurance_contact`) VALUES (classification, first_name, last_name, gender, date_of_birth, social_security_number, street_address, city, state, zip_code, phone_number, email, username, password, insurance_provider, insurance_contact);", conDataBase);
-
-				MySqlDataReader^ myReader;
-
+			MySqlDataReader^ myReader;
 			try {
 				conDataBase->Open();
 				myReader = cmdDataBase->ExecuteReader();
@@ -750,7 +749,6 @@ namespace IPIMS_Group9 {
 			catch (Exception^ ex){
 				MessageBox::Show(ex->Message);
 			}
-
 			/*	IPIMS_Group9::LoggingIn^ lIn = gcnew LoggingIn();
 				lIn->ShowDialog();
 				lIn->Show();*/
@@ -764,7 +762,9 @@ namespace IPIMS_Group9 {
 
 			MySqlConnection^ conDataBase = gcnew MySqlConnection(constring);
 
-			MySqlCommand^ cmdDataBase = gcnew MySqlCommand("INSERT INTO `group9_ipims`.`user_data` (`classification`, `first_name`,	`last_name`, `gender`,`date_of_birth`, `social_security_number`, `street_address`, `city`, `state`, `zip_code`, `phone_number`, `email`, `username`, `password`, `insurance_provider`, `insurance_contact`) VALUES (classification, first_name, last_name, gender, date_of_birth, social_security_number, street_address, city, state, zip_code, phone_number, email, username, password, insurance_provider, insurance_contact);", conDataBase);
+			/*MySqlCommand^ cmdDataBase = gcnew MySqlCommand("INSERT INTO `group9_ipims`.`user_data` (`classification`, `first_name`,	`last_name`, `gender`,`date_of_birth`, `social_security_number`, `street_address`, `city`, `state`, `zip_code`, `phone_number`, `email`, `username`, `password`, `insurance_provider`, `insurance_contact`) VALUES (classification, '" + first_name + "', '" + last_name + "', '" + gender + "', '" + date_of_birth + "', '" + social_security_number + "', '" + street_address + "', '" + city + "', '" + state + "', '" + zip_code + "', '" + phone_number + "', '" + email + "', '" + username + "', '" + password + "', '" + insurance_provider + "', '" + insurance_contact + "'); ", conDataBase);*/
+			MySqlCommand^ cmdDataBase = gcnew MySqlCommand("INSERT INTO `group9_ipims`.`user_data` (`classification`, `first_name`,	`last_name`, `gender`,`date_of_birth`, `social_security_number`, `street_address`, `city`, `state`, `zip_code`, `phone_number`, `email`, `username`, `password`, `insurance_provider`, `insurance_contact`) VALUES (classification, '" + this->textBoxFirstName->Text + "', '" + this->textBoxLastName->Text + "',gender, '" + this->textBoxDateOfBirth->Text + "', '" + this->textBoxIdNumber->Text + "', '" + this->textBoxStreetAddress->Text + "', '" + this->textBoxCity->Text + "', '" + this->textBoxState->Text + "', '" + this->textBoxZipCode->Text + "', '" + this->textBoxPhoneNumber->Text + "', '" + textBoxEmailAddress + "', '" + this->textBoxUsername->Text + "', '" + this->textBoxPassword->Text + "', '" + this->textBoxHealthInsurance->Text + "', '" + textBoxHealthInsuranceNumber + "'); ", conDataBase);
+
 
 			MySqlDataReader^ myReader;
 
@@ -787,6 +787,8 @@ namespace IPIMS_Group9 {
 		}
 	}
 
+	private: System::Void buttonRegister_Click_1(System::Object^  sender, System::EventArgs^  e) {
+	}
 	}; // end of public ref class Registration : public System::Windows::Forms::Form
 
 }
