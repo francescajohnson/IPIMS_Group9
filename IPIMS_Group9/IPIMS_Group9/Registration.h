@@ -771,7 +771,7 @@ namespace IPIMS_Group9 {
 			try {
 				conDataBase->Open();
 				//myReader = cmdDataBase->ExecuteReader();
-				myAdapter->InsertCommand(cmdDataBase);
+				//myAdapter->InsertCommand(cmdDataBase);
 				/*while (myReader->Read()){
 				}*/
 
