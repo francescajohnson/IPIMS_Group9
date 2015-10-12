@@ -15,7 +15,7 @@ using namespace std;
 	[Description("Office Staff")] OFFICESTAFF,
 	[Description("Lab Staff")] LABSTAFF,
 	[Description("Research Staff")] RESEARCHSTAFF
-} ClassificationType;*/
+	} ClassificationType;*/
 
 /*std::map<ClassificationType, const char*> MyClassificationMap;
 map_init
@@ -36,6 +36,7 @@ namespace IPIMS_Group9 {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace MySql::Data::MySqlClient;
+
 
 	/// <summary>
 	/// Summary for Registration
@@ -80,7 +81,6 @@ namespace IPIMS_Group9 {
 	private: System::Windows::Forms::TextBox^  textBoxIdNumber;
 	private: System::Windows::Forms::Label^  labelDateOfBirth;
 	private: System::Windows::Forms::TextBox^  textBoxDateOfBirth;
-
 	private: System::Windows::Forms::Label^  labelGender;
 	private: System::Windows::Forms::TextBox^  textBoxLastName;
 	private: System::Windows::Forms::TextBox^  textBoxFirstName;
@@ -678,8 +678,8 @@ namespace IPIMS_Group9 {
 		char* insurance_provider;
 		char* insurance_contact;
 		Char genderFound;
-	//	classificationMap  newClassificationMap;
-	
+		//	classificationMap  newClassificationMap;
+
 		/*public:
 			void register(string fname,string lname);*/
 	private: System::Void radioButtonPatient_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
@@ -719,14 +719,10 @@ namespace IPIMS_Group9 {
 		classification = 'R';
 	}
 	private: System::Void radioButtonFemale_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
-		//gender.ToString("F");
 		genderFound = 'F';
-		//return genderFound;
 	}
 	private: System::Void radioButtonMale_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
-		//gender.ToString("M");
 		genderFound = 'M';
-		//return genderFound;
 	}
 
 	private: System::Void buttonRegister_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -747,7 +743,7 @@ namespace IPIMS_Group9 {
 		//insurance_contact.ToString(this->textBoxHealthInsuranceNumber->Text);
 		//date_of_birth.ToString(this->textBoxDateOfBirth->Text->Substring(6, 4) + "-" + this->textBoxDateOfBirth->Text->Substring(0, 5));
 
-		
+
 		switch (MessageBox::Show("Would you like to login as this user now?", "Do you want to Login?", MessageBoxButtons::YesNoCancel, MessageBoxIcon::Question)) {
 		case (::System::Windows::Forms::DialogResult::Yes) : {
 			this->Hide();
@@ -764,10 +760,9 @@ namespace IPIMS_Group9 {
 			catch (Exception^ ex){
 				MessageBox::Show(ex->Message);
 			}
-				IPIMS_Group9::LoggingIn^ lIn = gcnew LoggingIn();
-				lIn->ShowDialog();
-				lIn->Show();
-
+			IPIMS_Group9::LoggingIn^ lIn = gcnew LoggingIn();
+			lIn->ShowDialog();
+			lIn->Show();
 			break;
 		}
 		case(::System::Windows::Forms::DialogResult::No) : {
@@ -780,19 +775,17 @@ namespace IPIMS_Group9 {
 			/*MySqlCommand^ cmdDataBase = gcnew MySqlCommand("INSERT INTO `group9_ipims`.`user_data` (`classification`, `first_name`,	`last_name`, `gender`,`date_of_birth`, `social_security_number`, `street_address`, `city`, `state`, `zip_code`, `phone_number`, `email`, `username`, `password`, `insurance_provider`, `insurance_contact`) VALUES (classification, '" + first_name + "', '" + last_name + "', '" + gender + "', '" + date_of_birth + "', '" + social_security_number + "', '" + street_address + "', '" + city + "', '" + state + "', '" + zip_code + "', '" + phone_number + "', '" + email + "', '" + username + "', '" + password + "', '" + insurance_provider + "', '" + insurance_contact + "'); ", conDataBase);*/
 			MySqlCommand^ cmdDataBase = gcnew MySqlCommand("INSERT INTO `group9_ipims`.`user_data` (`classification`, `first_name`,	`last_name`, `gender`,`date_of_birth`, `social_security_number`, `street_address`, `city`, `state`, `zip_code`, `phone_number`, `email`, `username`, `password`, `insurance_provider`, `insurance_contact`) VALUES ('" + classification.ToString() + "', '" + this->textBoxFirstName->Text + "', '" + this->textBoxLastName->Text + "','" + genderFound.ToString() + "', '" + this->textBoxDateOfBirth->Text->Substring(6, 4) + "-" + this->textBoxDateOfBirth->Text->Substring(0, 5) + "', '" + this->textBoxIdNumber->Text + "', '" + this->textBoxStreetAddress->Text + "', '" + this->textBoxCity->Text + "', '" + this->textBoxState->Text + "', '" + this->textBoxZipCode->Text + "', '" + this->textBoxPhoneNumber->Text + "', '" + this->textBoxEmailAddress->Text + "', '" + this->textBoxUsername->Text + "', '" + this->textBoxPassword->Text + "', '" + this->textBoxHealthInsurance->Text + "', '" + this->textBoxHealthInsuranceNumber->Text + "'); ", conDataBase);
 
-
 			MySqlDataReader^ myReader;
-//			MySqlDataAdapter^ myAdapter;
 			try {
 				conDataBase->Open();
 				myReader = cmdDataBase->ExecuteReader();
-				//myAdapter->InsertCommand(cmdDataBase);
-				/*while (myReader->Read()){
-				}*/
 			}
 			catch (Exception^ ex){
 				MessageBox::Show(ex->Message);
 			}
+			IPIMS_Group9::Welcome^ lIn = gcnew Welcome();
+			lIn->ShowDialog();
+			lIn->Show();
 			break;
 		}
 		case (::System::Windows::Forms::DialogResult::Cancel) : {
@@ -808,7 +801,7 @@ namespace IPIMS_Group9 {
 
 	private: System::Void textBoxFirstName_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 	}
-}; // end of public ref class Registration : public System::Windows::Forms::Form
+	}; // end of public ref class Registration : public System::Windows::Forms::Form
 
 }
 
