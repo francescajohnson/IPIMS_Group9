@@ -1,5 +1,5 @@
 #include "Welcome.h"
-#include "Registration.h"
+//#include "Registration.h"
 
 #pragma once
 
@@ -187,10 +187,10 @@ namespace IPIMS_Group9 {
 		if (checkBoxNewUser->Checked)
 		{
 			//MessageBox::Show("Taking you to the registration form.");
-			IPIMS_Group9::Registration^ formRegistration = gcnew Registration();
+			/* IPIMS_Group9::Registration^ formRegistration = gcnew Registration();
 			this->Hide();
 			formRegistration->ShowDialog();
-			this->Show();
+			this->Show();*/
 		}
 		else {
 			// MessageBox::Show("Please wait while the system logs you in."); 

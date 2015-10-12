@@ -38,14 +38,14 @@ namespace IPIMS_Group9 {
 			}
 		}
 	protected:
-	private: System::Windows::Forms::GroupBox^  groupBox1;
-	private: System::Windows::Forms::Label^  label1;
-	private: System::Windows::Forms::Button^  buttonClear;
-	private: System::Windows::Forms::Button^  buttonSave;
+
+
+
+
 	private: System::Windows::Forms::Label^  labelEmergencyAlert;
-	private: System::Windows::Forms::TextBox^  textBoxSymptoms;
+
 	private: System::Windows::Forms::Label^  labelSymptoms;
-	private: System::Windows::Forms::CheckBox^  checkBoxEmergencyAlert;
+
 	private: System::Windows::Forms::MenuStrip^  menuStrip;
 	private: System::Windows::Forms::ToolStripMenuItem^  patientServicesToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  searchForPatientToolStripMenuItem;
@@ -71,6 +71,15 @@ namespace IPIMS_Group9 {
 	private: System::Windows::Forms::ToolStripMenuItem^  editProfileToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  logoutToolStripMenuItem1;
 	private: System::Windows::Forms::ToolStripMenuItem^  logoutOfIPIMSToolStripMenuItem;
+	private: System::Windows::Forms::ComboBox^  comboBoxDoctorSelection;
+	private: System::Windows::Forms::GroupBox^  groupBox1;
+	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::TextBox^  textBoxSymptoms;
+	private: System::Windows::Forms::Button^  buttonClear;
+	private: System::Windows::Forms::Button^  buttonSave;
+	private: System::Windows::Forms::CheckBox^  checkBoxEmergencyAlert;
+
+
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -83,14 +92,8 @@ namespace IPIMS_Group9 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->buttonClear = (gcnew System::Windows::Forms::Button());
-			this->buttonSave = (gcnew System::Windows::Forms::Button());
 			this->labelEmergencyAlert = (gcnew System::Windows::Forms::Label());
-			this->textBoxSymptoms = (gcnew System::Windows::Forms::TextBox());
 			this->labelSymptoms = (gcnew System::Windows::Forms::Label());
-			this->checkBoxEmergencyAlert = (gcnew System::Windows::Forms::CheckBox());
 			this->menuStrip = (gcnew System::Windows::Forms::MenuStrip());
 			this->patientServicesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->searchForPatientToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -116,58 +119,16 @@ namespace IPIMS_Group9 {
 			this->editProfileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->logoutToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->logoutOfIPIMSToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->groupBox1->SuspendLayout();
+			this->comboBoxDoctorSelection = (gcnew System::Windows::Forms::ComboBox());
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->textBoxSymptoms = (gcnew System::Windows::Forms::TextBox());
+			this->buttonClear = (gcnew System::Windows::Forms::Button());
+			this->buttonSave = (gcnew System::Windows::Forms::Button());
+			this->checkBoxEmergencyAlert = (gcnew System::Windows::Forms::CheckBox());
 			this->menuStrip->SuspendLayout();
+			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
-			// 
-			// groupBox1
-			// 
-			this->groupBox1->Controls->Add(this->label1);
-			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->groupBox1->Location = System::Drawing::Point(12, 281);
-			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(424, 215);
-			this->groupBox1->TabIndex = 37;
-			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"Emergency Alert Conditions Include:";
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(6, 28);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(409, 156);
-			this->label1->TabIndex = 9;
-			this->label1->Text = L"  = Suspected heart attack or stroke\r\n  = Sudden or extreme difficulty breathing\r"
-				L"\n  = Sudden loss of consciousness\r\n  = Severe bleeding\r\n  = Severe abdominal pai"
-				L"n\r\n  = Injuries to one or both eyes";
-			// 
-			// buttonClear
-			// 
-			this->buttonClear->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12.5F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->buttonClear->Location = System::Drawing::Point(442, 281);
-			this->buttonClear->Name = L"buttonClear";
-			this->buttonClear->Size = System::Drawing::Size(115, 35);
-			this->buttonClear->TabIndex = 36;
-			this->buttonClear->Text = L"Clear";
-			this->buttonClear->UseVisualStyleBackColor = true;
-			this->buttonClear->Click += gcnew System::EventHandler(this, &EmergencyAlert::buttonClear_Click);
-			// 
-			// buttonSave
-			// 
-			this->buttonSave->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12.5F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->buttonSave->Location = System::Drawing::Point(442, 461);
-			this->buttonSave->Name = L"buttonSave";
-			this->buttonSave->Size = System::Drawing::Size(115, 35);
-			this->buttonSave->TabIndex = 35;
-			this->buttonSave->Text = L"Save";
-			this->buttonSave->UseVisualStyleBackColor = true;
-			this->buttonSave->Click += gcnew System::EventHandler(this, &EmergencyAlert::buttonSave_Click);
 			// 
 			// labelEmergencyAlert
 			// 
@@ -180,21 +141,6 @@ namespace IPIMS_Group9 {
 			this->labelEmergencyAlert->TabIndex = 34;
 			this->labelEmergencyAlert->Text = L"Send Doctor Emergency Alert";
 			// 
-			// textBoxSymptoms
-			// 
-			this->textBoxSymptoms->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBoxSymptoms->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBoxSymptoms->Location = System::Drawing::Point(90, 84);
-			this->textBoxSymptoms->Margin = System::Windows::Forms::Padding(2);
-			this->textBoxSymptoms->Multiline = true;
-			this->textBoxSymptoms->Name = L"textBoxSymptoms";
-			this->textBoxSymptoms->ScrollBars = System::Windows::Forms::ScrollBars::Both;
-			this->textBoxSymptoms->Size = System::Drawing::Size(489, 192);
-			this->textBoxSymptoms->TabIndex = 33;
-			// 
 			// labelSymptoms
 			// 
 			this->labelSymptoms->FlatStyle = System::Windows::Forms::FlatStyle::System;
@@ -206,20 +152,6 @@ namespace IPIMS_Group9 {
 			this->labelSymptoms->Size = System::Drawing::Size(75, 22);
 			this->labelSymptoms->TabIndex = 32;
 			this->labelSymptoms->Text = L"Symptoms:";
-			// 
-			// checkBoxEmergencyAlert
-			// 
-			this->checkBoxEmergencyAlert->AccessibleRole = System::Windows::Forms::AccessibleRole::Alert;
-			this->checkBoxEmergencyAlert->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->checkBoxEmergencyAlert->ForeColor = System::Drawing::Color::Red;
-			this->checkBoxEmergencyAlert->Location = System::Drawing::Point(441, 422);
-			this->checkBoxEmergencyAlert->Margin = System::Windows::Forms::Padding(2);
-			this->checkBoxEmergencyAlert->Name = L"checkBoxEmergencyAlert";
-			this->checkBoxEmergencyAlert->Size = System::Drawing::Size(138, 31);
-			this->checkBoxEmergencyAlert->TabIndex = 31;
-			this->checkBoxEmergencyAlert->Text = L"Emergency Alert";
-			this->checkBoxEmergencyAlert->UseVisualStyleBackColor = true;
 			// 
 			// menuStrip
 			// 
@@ -400,28 +332,123 @@ namespace IPIMS_Group9 {
 			this->logoutOfIPIMSToolStripMenuItem->Size = System::Drawing::Size(159, 22);
 			this->logoutOfIPIMSToolStripMenuItem->Text = L"Logout of IPIMS";
 			// 
+			// comboBoxDoctorSelection
+			// 
+			this->comboBoxDoctorSelection->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->comboBoxDoctorSelection->FormattingEnabled = true;
+			this->comboBoxDoctorSelection->Items->AddRange(gcnew cli::array< System::Object^  >(3) {
+				L"Dr. Thomas Smith", L"Dr. Susan Enriquez",
+					L"Dr. Linda Chattin"
+			});
+			this->comboBoxDoctorSelection->Location = System::Drawing::Point(12, 262);
+			this->comboBoxDoctorSelection->Name = L"comboBoxDoctorSelection";
+			this->comboBoxDoctorSelection->Size = System::Drawing::Size(284, 26);
+			this->comboBoxDoctorSelection->TabIndex = 44;
+			this->comboBoxDoctorSelection->Text = L"Select a Doctor";
+			// 
+			// groupBox1
+			// 
+			this->groupBox1->Controls->Add(this->label1);
+			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->groupBox1->Location = System::Drawing::Point(12, 294);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->Size = System::Drawing::Size(424, 195);
+			this->groupBox1->TabIndex = 43;
+			this->groupBox1->TabStop = false;
+			this->groupBox1->Text = L"Emergency Alert Conditions Include:";
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(6, 28);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(409, 156);
+			this->label1->TabIndex = 9;
+			this->label1->Text = L"  = Suspected heart attack or stroke\r\n  = Sudden or extreme difficulty breathing\r"
+				L"\n  = Sudden loss of consciousness\r\n  = Severe bleeding\r\n  = Severe abdominal pai"
+				L"n\r\n  = Injuries to one or both eyes";
+			// 
+			// textBoxSymptoms
+			// 
+			this->textBoxSymptoms->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->textBoxSymptoms->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBoxSymptoms->ForeColor = System::Drawing::SystemColors::InactiveCaption;
+			this->textBoxSymptoms->Location = System::Drawing::Point(90, 80);
+			this->textBoxSymptoms->Margin = System::Windows::Forms::Padding(2);
+			this->textBoxSymptoms->Multiline = true;
+			this->textBoxSymptoms->Name = L"textBoxSymptoms";
+			this->textBoxSymptoms->ScrollBars = System::Windows::Forms::ScrollBars::Both;
+			this->textBoxSymptoms->Size = System::Drawing::Size(489, 172);
+			this->textBoxSymptoms->TabIndex = 40;
+			this->textBoxSymptoms->Text = L"Symptoms";
+			// 
+			// buttonClear
+			// 
+			this->buttonClear->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12.5F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->buttonClear->Location = System::Drawing::Point(463, 257);
+			this->buttonClear->Name = L"buttonClear";
+			this->buttonClear->Size = System::Drawing::Size(115, 35);
+			this->buttonClear->TabIndex = 42;
+			this->buttonClear->Text = L"Clear";
+			this->buttonClear->UseVisualStyleBackColor = true;
+			// 
+			// buttonSave
+			// 
+			this->buttonSave->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12.5F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->buttonSave->Location = System::Drawing::Point(463, 454);
+			this->buttonSave->Name = L"buttonSave";
+			this->buttonSave->Size = System::Drawing::Size(115, 35);
+			this->buttonSave->TabIndex = 41;
+			this->buttonSave->Text = L"Save";
+			this->buttonSave->UseVisualStyleBackColor = true;
+			// 
+			// checkBoxEmergencyAlert
+			// 
+			this->checkBoxEmergencyAlert->AccessibleRole = System::Windows::Forms::AccessibleRole::Alert;
+			this->checkBoxEmergencyAlert->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->checkBoxEmergencyAlert->ForeColor = System::Drawing::Color::Red;
+			this->checkBoxEmergencyAlert->Location = System::Drawing::Point(441, 418);
+			this->checkBoxEmergencyAlert->Margin = System::Windows::Forms::Padding(2);
+			this->checkBoxEmergencyAlert->Name = L"checkBoxEmergencyAlert";
+			this->checkBoxEmergencyAlert->Size = System::Drawing::Size(138, 31);
+			this->checkBoxEmergencyAlert->TabIndex = 39;
+			this->checkBoxEmergencyAlert->Text = L"Emergency Alert";
+			this->checkBoxEmergencyAlert->UseVisualStyleBackColor = true;
+			// 
 			// EmergencyAlert
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(594, 502);
-			this->Controls->Add(this->menuStrip);
+			this->Controls->Add(this->comboBoxDoctorSelection);
 			this->Controls->Add(this->groupBox1);
+			this->Controls->Add(this->textBoxSymptoms);
 			this->Controls->Add(this->buttonClear);
 			this->Controls->Add(this->buttonSave);
-			this->Controls->Add(this->labelEmergencyAlert);
-			this->Controls->Add(this->textBoxSymptoms);
-			this->Controls->Add(this->labelSymptoms);
 			this->Controls->Add(this->checkBoxEmergencyAlert);
+			this->Controls->Add(this->menuStrip);
+			this->Controls->Add(this->labelEmergencyAlert);
+			this->Controls->Add(this->labelSymptoms);
 			this->Name = L"EmergencyAlert";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Interactive Patient Information System (IPIMS) - Group 9";
-			this->groupBox1->ResumeLayout(false);
-			this->groupBox1->PerformLayout();
 			this->menuStrip->ResumeLayout(false);
 			this->menuStrip->PerformLayout();
+			this->groupBox1->ResumeLayout(false);
+			this->groupBox1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
+
 		}
 #pragma endregion
 	private: System::Void buttonClear_Click(System::Object^  sender, System::EventArgs^  e) {

@@ -124,6 +124,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="EmergencyAlert.resx">
+      <DependentUpon>EmergencyAlert.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EPrescription.resx">
       <DependentUpon>EPrescription.h</DependentUpon>
     </EmbeddedResource>
@@ -133,12 +136,18 @@
     <EmbeddedResource Include="ScheduleAppointment.resx">
       <DependentUpon>ScheduleAppointment.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UpdateHealthcareCondition.resx">
+      <DependentUpon>UpdateHealthcareCondition.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewAppointments.resx">
       <DependentUpon>ViewAppointments.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Welcome.resx">
       <DependentUpon>Welcome.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IPIMS_Group9.sql" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,6 +1,19 @@
+#include "LoggingIn.h"
 #include "Welcome.h"
 
-#pragma once
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+typedef enum {
+	PATIENT,
+	DOCTOR,
+	NURSE,
+	OFFICESTAFF,
+	LABSTAFF,
+	RESEARCHSTAFF
+} ClassificationType;
 
 namespace IPIMS_Group9 {
 
@@ -11,7 +24,6 @@ namespace IPIMS_Group9 {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace MySql::Data::MySqlClient;
-
 
 	/// <summary>
 	/// Summary for Registration
@@ -56,7 +68,7 @@ namespace IPIMS_Group9 {
 	private: System::Windows::Forms::TextBox^  textBoxIdNumber;
 	private: System::Windows::Forms::Label^  labelDateOfBirth;
 	private: System::Windows::Forms::TextBox^  textBoxDateOfBirth;
-	private: System::Windows::Forms::TextBox^  textBoxGender;
+
 	private: System::Windows::Forms::Label^  labelGender;
 	private: System::Windows::Forms::TextBox^  textBoxLastName;
 	private: System::Windows::Forms::TextBox^  textBoxFirstName;
@@ -81,38 +93,17 @@ namespace IPIMS_Group9 {
 	private: System::Windows::Forms::Label^  labelUsername;
 	private: System::Windows::Forms::Button^  buttonRegister;
 	private: System::Windows::Forms::GroupBox^  groupBoxMedicalInformation;
-	private: System::Windows::Forms::TextBox^  textBoxMedicalHistory;
-	private: System::Windows::Forms::Label^  labelMedicalHistory;
+
+
 	private: System::Windows::Forms::TextBox^  textBoxHealthInsuranceNumber;
 	private: System::Windows::Forms::Label^  labelHealthInsuranceNumber;
 	private: System::Windows::Forms::TextBox^  textBoxHealthInsurance;
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::Label^  labelRegistration;
-	private: System::Windows::Forms::MenuStrip^  menuStrip;
-	private: System::Windows::Forms::ToolStripMenuItem^  patientServicesToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  searchForPatientToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  updatePatientToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  viewAppointmentsToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  viewToolStripMenuItem1;
-	private: System::Windows::Forms::ToolStripMenuItem^  scheduleToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  ePrescriptionToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  viewToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  printToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  printExistingToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  searchForPatientsToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  reportsToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  searchRecordsToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  editLabRequestToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  editLabRecordToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolsToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  editProfileInformationToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  report2ToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  analysisOfTypeOfPatientsToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  analysisOfPatientPopulationToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  logoutToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  editProfileToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  logoutToolStripMenuItem1;
-	private: System::Windows::Forms::ToolStripMenuItem^  logoutOfIPIMSToolStripMenuItem;
+	private: System::Windows::Forms::RadioButton^  radioButtonMale;
+	private: System::Windows::Forms::RadioButton^  radioButtonFemale;
+
+
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -134,11 +125,12 @@ namespace IPIMS_Group9 {
 			this->radioButtonDoctor = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButtonPatient = (gcnew System::Windows::Forms::RadioButton());
 			this->groupBoxPersonalInformation = (gcnew System::Windows::Forms::GroupBox());
+			this->radioButtonFemale = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButtonMale = (gcnew System::Windows::Forms::RadioButton());
 			this->labelIdNumber = (gcnew System::Windows::Forms::Label());
 			this->textBoxIdNumber = (gcnew System::Windows::Forms::TextBox());
 			this->labelDateOfBirth = (gcnew System::Windows::Forms::Label());
 			this->textBoxDateOfBirth = (gcnew System::Windows::Forms::TextBox());
-			this->textBoxGender = (gcnew System::Windows::Forms::TextBox());
 			this->labelGender = (gcnew System::Windows::Forms::Label());
 			this->textBoxLastName = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxFirstName = (gcnew System::Windows::Forms::TextBox());
@@ -165,45 +157,17 @@ namespace IPIMS_Group9 {
 			this->labelUsername = (gcnew System::Windows::Forms::Label());
 			this->buttonRegister = (gcnew System::Windows::Forms::Button());
 			this->groupBoxMedicalInformation = (gcnew System::Windows::Forms::GroupBox());
-			this->textBoxMedicalHistory = (gcnew System::Windows::Forms::TextBox());
-			this->labelMedicalHistory = (gcnew System::Windows::Forms::Label());
 			this->textBoxHealthInsuranceNumber = (gcnew System::Windows::Forms::TextBox());
 			this->labelHealthInsuranceNumber = (gcnew System::Windows::Forms::Label());
 			this->textBoxHealthInsurance = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->labelRegistration = (gcnew System::Windows::Forms::Label());
-			this->menuStrip = (gcnew System::Windows::Forms::MenuStrip());
-			this->patientServicesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->searchForPatientToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->updatePatientToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->viewAppointmentsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->viewToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->scheduleToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->ePrescriptionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->viewToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->printToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->printExistingToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->searchForPatientsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->reportsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->searchRecordsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->editLabRequestToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->editLabRecordToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->toolsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->editProfileInformationToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->report2ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->analysisOfTypeOfPatientsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->analysisOfPatientPopulationToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->logoutToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->editProfileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->logoutToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->logoutOfIPIMSToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->groupBox1->SuspendLayout();
 			this->groupBoxPersonalInformation->SuspendLayout();
 			this->groupBoxAddressInformation->SuspendLayout();
 			this->groupBoxContactInformation->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			this->groupBoxMedicalInformation->SuspendLayout();
-			this->menuStrip->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// groupBox1
@@ -289,11 +253,12 @@ namespace IPIMS_Group9 {
 			// 
 			// groupBoxPersonalInformation
 			// 
+			this->groupBoxPersonalInformation->Controls->Add(this->radioButtonFemale);
+			this->groupBoxPersonalInformation->Controls->Add(this->radioButtonMale);
 			this->groupBoxPersonalInformation->Controls->Add(this->labelIdNumber);
 			this->groupBoxPersonalInformation->Controls->Add(this->textBoxIdNumber);
 			this->groupBoxPersonalInformation->Controls->Add(this->labelDateOfBirth);
 			this->groupBoxPersonalInformation->Controls->Add(this->textBoxDateOfBirth);
-			this->groupBoxPersonalInformation->Controls->Add(this->textBoxGender);
 			this->groupBoxPersonalInformation->Controls->Add(this->labelGender);
 			this->groupBoxPersonalInformation->Controls->Add(this->textBoxLastName);
 			this->groupBoxPersonalInformation->Controls->Add(this->textBoxFirstName);
@@ -305,6 +270,30 @@ namespace IPIMS_Group9 {
 			this->groupBoxPersonalInformation->TabIndex = 2;
 			this->groupBoxPersonalInformation->TabStop = false;
 			this->groupBoxPersonalInformation->Text = L"Personal Information:";
+			// 
+			// radioButtonFemale
+			// 
+			this->radioButtonFemale->AutoSize = true;
+			this->radioButtonFemale->Location = System::Drawing::Point(73, 61);
+			this->radioButtonFemale->Name = L"radioButtonFemale";
+			this->radioButtonFemale->Size = System::Drawing::Size(59, 17);
+			this->radioButtonFemale->TabIndex = 13;
+			this->radioButtonFemale->TabStop = true;
+			this->radioButtonFemale->Text = L"Female";
+			this->radioButtonFemale->UseVisualStyleBackColor = true;
+			this->radioButtonFemale->CheckedChanged += gcnew System::EventHandler(this, &Registration::radioButtonFemale_CheckedChanged);
+			// 
+			// radioButtonMale
+			// 
+			this->radioButtonMale->AutoSize = true;
+			this->radioButtonMale->Location = System::Drawing::Point(19, 61);
+			this->radioButtonMale->Name = L"radioButtonMale";
+			this->radioButtonMale->Size = System::Drawing::Size(48, 17);
+			this->radioButtonMale->TabIndex = 12;
+			this->radioButtonMale->TabStop = true;
+			this->radioButtonMale->Text = L"Male";
+			this->radioButtonMale->UseVisualStyleBackColor = true;
+			this->radioButtonMale->CheckedChanged += gcnew System::EventHandler(this, &Registration::radioButtonMale_CheckedChanged);
 			// 
 			// labelIdNumber
 			// 
@@ -340,18 +329,10 @@ namespace IPIMS_Group9 {
 			this->textBoxDateOfBirth->TabIndex = 8;
 			this->textBoxDateOfBirth->Text = L"01/01/2121";
 			// 
-			// textBoxGender
-			// 
-			this->textBoxGender->Location = System::Drawing::Point(73, 46);
-			this->textBoxGender->Name = L"textBoxGender";
-			this->textBoxGender->Size = System::Drawing::Size(82, 20);
-			this->textBoxGender->TabIndex = 7;
-			this->textBoxGender->Text = L"Male / Female";
-			// 
 			// labelGender
 			// 
 			this->labelGender->AutoSize = true;
-			this->labelGender->Location = System::Drawing::Point(20, 49);
+			this->labelGender->Location = System::Drawing::Point(50, 45);
 			this->labelGender->Name = L"labelGender";
 			this->labelGender->Size = System::Drawing::Size(45, 13);
 			this->labelGender->TabIndex = 6;
@@ -572,45 +553,26 @@ namespace IPIMS_Group9 {
 			// 
 			this->buttonRegister->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12.5F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->buttonRegister->Location = System::Drawing::Point(449, 420);
+			this->buttonRegister->Location = System::Drawing::Point(460, 455);
 			this->buttonRegister->Name = L"buttonRegister";
 			this->buttonRegister->Size = System::Drawing::Size(122, 35);
 			this->buttonRegister->TabIndex = 17;
 			this->buttonRegister->Text = L"Register";
 			this->buttonRegister->UseVisualStyleBackColor = true;
-			this->buttonRegister->Click += gcnew System::EventHandler(this, &Registration::buttonRegister_Click);
 			// 
 			// groupBoxMedicalInformation
 			// 
-			this->groupBoxMedicalInformation->Controls->Add(this->textBoxMedicalHistory);
-			this->groupBoxMedicalInformation->Controls->Add(this->labelMedicalHistory);
 			this->groupBoxMedicalInformation->Controls->Add(this->textBoxHealthInsuranceNumber);
 			this->groupBoxMedicalInformation->Controls->Add(this->labelHealthInsuranceNumber);
 			this->groupBoxMedicalInformation->Controls->Add(this->textBoxHealthInsurance);
 			this->groupBoxMedicalInformation->Controls->Add(this->label2);
 			this->groupBoxMedicalInformation->Location = System::Drawing::Point(12, 386);
 			this->groupBoxMedicalInformation->Name = L"groupBoxMedicalInformation";
-			this->groupBoxMedicalInformation->Size = System::Drawing::Size(409, 103);
+			this->groupBoxMedicalInformation->Size = System::Drawing::Size(409, 69);
 			this->groupBoxMedicalInformation->TabIndex = 16;
 			this->groupBoxMedicalInformation->TabStop = false;
 			this->groupBoxMedicalInformation->Text = L"Medical Information:";
 			this->groupBoxMedicalInformation->Visible = false;
-			// 
-			// textBoxMedicalHistory
-			// 
-			this->textBoxMedicalHistory->Location = System::Drawing::Point(104, 71);
-			this->textBoxMedicalHistory->Name = L"textBoxMedicalHistory";
-			this->textBoxMedicalHistory->Size = System::Drawing::Size(299, 20);
-			this->textBoxMedicalHistory->TabIndex = 8;
-			// 
-			// labelMedicalHistory
-			// 
-			this->labelMedicalHistory->AutoSize = true;
-			this->labelMedicalHistory->Location = System::Drawing::Point(16, 74);
-			this->labelMedicalHistory->Name = L"labelMedicalHistory";
-			this->labelMedicalHistory->Size = System::Drawing::Size(82, 13);
-			this->labelMedicalHistory->TabIndex = 7;
-			this->labelMedicalHistory->Text = L"Medical History:";
 			// 
 			// textBoxHealthInsuranceNumber
 			// 
@@ -657,191 +619,11 @@ namespace IPIMS_Group9 {
 			this->labelRegistration->TabIndex = 0;
 			this->labelRegistration->Text = L"Registration";
 			// 
-			// menuStrip
-			// 
-			this->menuStrip->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
-				this->patientServicesToolStripMenuItem,
-					this->reportsToolStripMenuItem, this->toolsToolStripMenuItem, this->logoutToolStripMenuItem, this->logoutToolStripMenuItem1
-			});
-			this->menuStrip->Location = System::Drawing::Point(0, 0);
-			this->menuStrip->Name = L"menuStrip";
-			this->menuStrip->Size = System::Drawing::Size(594, 24);
-			this->menuStrip->TabIndex = 33;
-			this->menuStrip->Text = L"menuStrip1";
-			// 
-			// patientServicesToolStripMenuItem
-			// 
-			this->patientServicesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
-				this->searchForPatientToolStripMenuItem,
-					this->updatePatientToolStripMenuItem, this->viewAppointmentsToolStripMenuItem, this->ePrescriptionToolStripMenuItem, this->searchForPatientsToolStripMenuItem
-			});
-			this->patientServicesToolStripMenuItem->Name = L"patientServicesToolStripMenuItem";
-			this->patientServicesToolStripMenuItem->Size = System::Drawing::Size(101, 20);
-			this->patientServicesToolStripMenuItem->Text = L"Patient Services";
-			// 
-			// searchForPatientToolStripMenuItem
-			// 
-			this->searchForPatientToolStripMenuItem->Name = L"searchForPatientToolStripMenuItem";
-			this->searchForPatientToolStripMenuItem->Size = System::Drawing::Size(232, 22);
-			this->searchForPatientToolStripMenuItem->Text = L"Emergency Alerts";
-			// 
-			// updatePatientToolStripMenuItem
-			// 
-			this->updatePatientToolStripMenuItem->Name = L"updatePatientToolStripMenuItem";
-			this->updatePatientToolStripMenuItem->Size = System::Drawing::Size(232, 22);
-			this->updatePatientToolStripMenuItem->Text = L"Update Patient Healthcare";
-			// 
-			// viewAppointmentsToolStripMenuItem
-			// 
-			this->viewAppointmentsToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->viewToolStripMenuItem1,
-					this->scheduleToolStripMenuItem
-			});
-			this->viewAppointmentsToolStripMenuItem->Name = L"viewAppointmentsToolStripMenuItem";
-			this->viewAppointmentsToolStripMenuItem->Size = System::Drawing::Size(232, 22);
-			this->viewAppointmentsToolStripMenuItem->Text = L"Appointments";
-			// 
-			// viewToolStripMenuItem1
-			// 
-			this->viewToolStripMenuItem1->Name = L"viewToolStripMenuItem1";
-			this->viewToolStripMenuItem1->Size = System::Drawing::Size(122, 22);
-			this->viewToolStripMenuItem1->Text = L"View";
-			// 
-			// scheduleToolStripMenuItem
-			// 
-			this->scheduleToolStripMenuItem->Name = L"scheduleToolStripMenuItem";
-			this->scheduleToolStripMenuItem->Size = System::Drawing::Size(122, 22);
-			this->scheduleToolStripMenuItem->Text = L"Schedule";
-			// 
-			// ePrescriptionToolStripMenuItem
-			// 
-			this->ePrescriptionToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
-				this->viewToolStripMenuItem,
-					this->printToolStripMenuItem, this->printExistingToolStripMenuItem
-			});
-			this->ePrescriptionToolStripMenuItem->Name = L"ePrescriptionToolStripMenuItem";
-			this->ePrescriptionToolStripMenuItem->Size = System::Drawing::Size(232, 22);
-			this->ePrescriptionToolStripMenuItem->Text = L"E-Prescription (Medicine/Lab)";
-			// 
-			// viewToolStripMenuItem
-			// 
-			this->viewToolStripMenuItem->Name = L"viewToolStripMenuItem";
-			this->viewToolStripMenuItem->Size = System::Drawing::Size(142, 22);
-			this->viewToolStripMenuItem->Text = L"Send New";
-			// 
-			// printToolStripMenuItem
-			// 
-			this->printToolStripMenuItem->Name = L"printToolStripMenuItem";
-			this->printToolStripMenuItem->Size = System::Drawing::Size(142, 22);
-			this->printToolStripMenuItem->Text = L"View Existing";
-			// 
-			// printExistingToolStripMenuItem
-			// 
-			this->printExistingToolStripMenuItem->Name = L"printExistingToolStripMenuItem";
-			this->printExistingToolStripMenuItem->Size = System::Drawing::Size(142, 22);
-			this->printExistingToolStripMenuItem->Text = L"Print Existing";
-			// 
-			// searchForPatientsToolStripMenuItem
-			// 
-			this->searchForPatientsToolStripMenuItem->Name = L"searchForPatientsToolStripMenuItem";
-			this->searchForPatientsToolStripMenuItem->Size = System::Drawing::Size(232, 22);
-			this->searchForPatientsToolStripMenuItem->Text = L"Search for Patients";
-			// 
-			// reportsToolStripMenuItem
-			// 
-			this->reportsToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
-				this->searchRecordsToolStripMenuItem,
-					this->editLabRequestToolStripMenuItem, this->editLabRecordToolStripMenuItem
-			});
-			this->reportsToolStripMenuItem->Name = L"reportsToolStripMenuItem";
-			this->reportsToolStripMenuItem->Size = System::Drawing::Size(83, 20);
-			this->reportsToolStripMenuItem->Text = L"Lab Records";
-			// 
-			// searchRecordsToolStripMenuItem
-			// 
-			this->searchRecordsToolStripMenuItem->Name = L"searchRecordsToolStripMenuItem";
-			this->searchRecordsToolStripMenuItem->Size = System::Drawing::Size(161, 22);
-			this->searchRecordsToolStripMenuItem->Text = L"Add Lab Record";
-			// 
-			// editLabRequestToolStripMenuItem
-			// 
-			this->editLabRequestToolStripMenuItem->Name = L"editLabRequestToolStripMenuItem";
-			this->editLabRequestToolStripMenuItem->Size = System::Drawing::Size(161, 22);
-			this->editLabRequestToolStripMenuItem->Text = L"View Lab Record";
-			// 
-			// editLabRecordToolStripMenuItem
-			// 
-			this->editLabRecordToolStripMenuItem->Name = L"editLabRecordToolStripMenuItem";
-			this->editLabRecordToolStripMenuItem->Size = System::Drawing::Size(161, 22);
-			this->editLabRecordToolStripMenuItem->Text = L"Edit Lab Record";
-			// 
-			// toolsToolStripMenuItem
-			// 
-			this->toolsToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
-				this->editProfileInformationToolStripMenuItem,
-					this->report2ToolStripMenuItem, this->analysisOfTypeOfPatientsToolStripMenuItem, this->analysisOfPatientPopulationToolStripMenuItem
-			});
-			this->toolsToolStripMenuItem->Name = L"toolsToolStripMenuItem";
-			this->toolsToolStripMenuItem->Size = System::Drawing::Size(71, 20);
-			this->toolsToolStripMenuItem->Text = L"Reporting";
-			// 
-			// editProfileInformationToolStripMenuItem
-			// 
-			this->editProfileInformationToolStripMenuItem->Name = L"editProfileInformationToolStripMenuItem";
-			this->editProfileInformationToolStripMenuItem->Size = System::Drawing::Size(239, 22);
-			this->editProfileInformationToolStripMenuItem->Text = L"Analysis of health outcomes";
-			// 
-			// report2ToolStripMenuItem
-			// 
-			this->report2ToolStripMenuItem->Name = L"report2ToolStripMenuItem";
-			this->report2ToolStripMenuItem->Size = System::Drawing::Size(239, 22);
-			this->report2ToolStripMenuItem->Text = L"Tracking of the admission rates";
-			// 
-			// analysisOfTypeOfPatientsToolStripMenuItem
-			// 
-			this->analysisOfTypeOfPatientsToolStripMenuItem->Name = L"analysisOfTypeOfPatientsToolStripMenuItem";
-			this->analysisOfTypeOfPatientsToolStripMenuItem->Size = System::Drawing::Size(239, 22);
-			this->analysisOfTypeOfPatientsToolStripMenuItem->Text = L"Analysis of type of patients";
-			// 
-			// analysisOfPatientPopulationToolStripMenuItem
-			// 
-			this->analysisOfPatientPopulationToolStripMenuItem->Name = L"analysisOfPatientPopulationToolStripMenuItem";
-			this->analysisOfPatientPopulationToolStripMenuItem->Size = System::Drawing::Size(239, 22);
-			this->analysisOfPatientPopulationToolStripMenuItem->Text = L"Analysis of patient population";
-			// 
-			// logoutToolStripMenuItem
-			// 
-			this->logoutToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->editProfileToolStripMenuItem });
-			this->logoutToolStripMenuItem->Name = L"logoutToolStripMenuItem";
-			this->logoutToolStripMenuItem->Size = System::Drawing::Size(85, 20);
-			this->logoutToolStripMenuItem->Text = L"Profile Tools";
-			// 
-			// editProfileToolStripMenuItem
-			// 
-			this->editProfileToolStripMenuItem->Name = L"editProfileToolStripMenuItem";
-			this->editProfileToolStripMenuItem->Size = System::Drawing::Size(131, 22);
-			this->editProfileToolStripMenuItem->Text = L"Edit Profile";
-			// 
-			// logoutToolStripMenuItem1
-			// 
-			this->logoutToolStripMenuItem1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->logoutOfIPIMSToolStripMenuItem });
-			this->logoutToolStripMenuItem1->Name = L"logoutToolStripMenuItem1";
-			this->logoutToolStripMenuItem1->Size = System::Drawing::Size(57, 20);
-			this->logoutToolStripMenuItem1->Text = L"Logout";
-			// 
-			// logoutOfIPIMSToolStripMenuItem
-			// 
-			this->logoutOfIPIMSToolStripMenuItem->Name = L"logoutOfIPIMSToolStripMenuItem";
-			this->logoutOfIPIMSToolStripMenuItem->Size = System::Drawing::Size(159, 22);
-			this->logoutOfIPIMSToolStripMenuItem->Text = L"Logout of IPIMS";
-			// 
 			// Registration
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(594, 502);
-			this->Controls->Add(this->menuStrip);
 			this->Controls->Add(this->groupBoxMedicalInformation);
 			this->Controls->Add(this->buttonRegister);
 			this->Controls->Add(this->groupBox2);
@@ -865,65 +647,168 @@ namespace IPIMS_Group9 {
 			this->groupBox2->PerformLayout();
 			this->groupBoxMedicalInformation->ResumeLayout(false);
 			this->groupBoxMedicalInformation->PerformLayout();
-			this->menuStrip->ResumeLayout(false);
-			this->menuStrip->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
+	public:
+		ClassificationType classification;
+		char first_name;
+		char last_name;
+		bool gender;   // true = Male & false = Female
+		char date_of_birth;
+		char social_security_number;
+		char street_address;;
+		char city;
+		char state;
+		char zip_code;
+		char phone_number;
+		char email;
+		char username;
+		char password;
+		char insurance_provider;
+		char insurance_contact;
+
+		/*public:
+			void register(string fname,string lname);*/
 	private: System::Void radioButtonPatient_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 		labelIdNumber->Text = "Social Security Number:";
 		labelIdNumber->Location = System::Drawing::Point(327, 49);
 		groupBoxMedicalInformation->Visible = true;
+		classification = PATIENT;
 	}
-
-
 	private: System::Void radioButtonDoctor_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 		labelIdNumber->Text = "ID:";
 		labelIdNumber->Location = System::Drawing::Point(426, 49);
 		groupBoxMedicalInformation->Visible = false;
+		classification = DOCTOR;
 	}
 	private: System::Void radioButtonNurse_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 		labelIdNumber->Text = "ID:";
 		labelIdNumber->Location = System::Drawing::Point(426, 49);
 		groupBoxMedicalInformation->Visible = false;
+		classification = NURSE;
 	}
 	private: System::Void radioButtonOfficeStaff_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 		labelIdNumber->Text = "ID:";
 		labelIdNumber->Location = System::Drawing::Point(426, 49);
 		groupBoxMedicalInformation->Visible = false;
+		classification = OFFICESTAFF;
 	}
 	private: System::Void radioButtonLabStaff_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 		labelIdNumber->Text = "ID:";
 		labelIdNumber->Location = System::Drawing::Point(426, 49);
 		groupBoxMedicalInformation->Visible = false;
+		classification = LABSTAFF;
 	}
 	private: System::Void radioButtonResearchStaff_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 		labelIdNumber->Text = "ID:";
 		labelIdNumber->Location = System::Drawing::Point(426, 49);
 		groupBoxMedicalInformation->Visible = false;
+		classification = RESEARCHSTAFF;
+	}
+	private: System::Void radioButtonFemale_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+		gender = false;
+	}
+	private: System::Void radioButtonMale_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+
+		gender = true;
 	}
 	private: System::Void buttonRegister_Click(System::Object^  sender, System::EventArgs^  e) {
-		// Add code here for when the register button is pressed
-		this->Close();
-		IPIMS_Group9::Welcome^ formWelcome = gcnew Welcome();
-		formWelcome->ShowDialog();
-		this->Show();
-		/*
-		String^ constring = L"datasource=localhost;port=3306;username=root;password=Group9IPIMS";
-		MySqlConnection^ conDataBase = gcnew MySqlConnection(constring);
-		MySqlCommand^ cmdDataBase = gcnew MySqlCommand("select * from database.edata;", conDataBase);
-		MySqlDataReader^ myReader;
-		try {
-		conDataBase->Open();
-		myReader = cmdDataBase->ExecuteReader();
-		}
-		catch (Exception^ ex){
-		MessageBox::Show(ex->Message);
-		}
-		*/
-		}
 
-	};
+		first_name.ToString(this->textBoxFirstName->Text);
+		last_name.ToString(this->textBoxLastName->Text);
+		date_of_birth.ToString(this->textBoxDateOfBirth->Text);
+		social_security_number.ToString(this->textBoxIdNumber->Text);
+		street_address.ToString(this->textBoxStreetAddress->Text);
+		city.ToString(this->textBoxCity->Text);
+		state.ToString(this->textBoxState->Text);
+		zip_code.ToString(this->textBoxZipCode->Text);
+		phone_number.ToString(this->textBoxPhoneNumber->Text);
+		email.ToString(this->textBoxEmailAddress->Text);
+		username.ToString(this->textBoxUsername->Text);
+		password.ToString(this->textBoxPassword->Text);
+		insurance_provider.ToString(this->textBoxHealthInsurance->Text);
+		insurance_contact.ToString(this->textBoxHealthInsuranceNumber->Text);
+
+		switch (MessageBox::Show("Would you like to login as this user now?", "Do you want to Login?", MessageBoxButtons::YesNoCancel, MessageBoxIcon::Question)) {
+		case (::System::Windows::Forms::DialogResult::Yes) : {
+			this->Hide();
+			String^ constring = L"datasource=localhost;port=3306;username=root;password=Group9IPIMS";
+
+			MySqlConnection^ conDataBase = gcnew MySqlConnection(constring);
+
+			MySqlCommand^ cmdDataBase = gcnew MySqlCommand("INSERT INTO `group9_ipims`.`user_data` (`classification`, `first_name`,	`last_name`, `gender`,`date_of_birth`, `social_security_number`, `street_address`, `city`, `state`, `zip_code`, `phone_number`, `email`, `username`, `password`, `insurance_provider`, `insurance_contact`) VALUES (classification, first_name, last_name, gender, date_of_birth, social_security_number, street_address, city, state, zip_code, phone_number, email, username, password, insurance_provider, insurance_contact);", conDataBase);
+
+				MySqlDataReader^ myReader;
+
+			try {
+				conDataBase->Open();
+				myReader = cmdDataBase->ExecuteReader();
+			}
+			catch (Exception^ ex){
+				MessageBox::Show(ex->Message);
+			}
+
+			/*	IPIMS_Group9::LoggingIn^ lIn = gcnew LoggingIn();
+				lIn->ShowDialog();
+				lIn->Show();*/
+
+			break;
+		}
+		case(::System::Windows::Forms::DialogResult::No) : {
+
+			this->Hide();
+			String^ constring = L"datasource=localhost;port=3306;username=root;password=Group9IPIMS";
+
+			MySqlConnection^ conDataBase = gcnew MySqlConnection(constring);
+
+			MySqlCommand^ cmdDataBase = gcnew MySqlCommand("INSERT INTO `group9_ipims`.`user_data` (`classification`, `first_name`,	`last_name`, `gender`,`date_of_birth`, `social_security_number`, `street_address`, `city`, `state`, `zip_code`, `phone_number`, `email`, `username`, `password`, `insurance_provider`, `insurance_contact`) VALUES (classification, first_name, last_name, gender, date_of_birth, social_security_number, street_address, city, state, zip_code, phone_number, email, username, password, insurance_provider, insurance_contact);", conDataBase);
+
+			MySqlDataReader^ myReader;
+
+			try {
+				conDataBase->Open();
+				myReader = cmdDataBase->ExecuteReader();
+			}
+			catch (Exception^ ex){
+				MessageBox::Show(ex->Message);
+			}
+			break;
+		}
+		case (::System::Windows::Forms::DialogResult::Cancel) : {
+			this->Show();
+		}
+		default: {
+
+			break;
+		}
+		}
+	}
+
+	}; // end of public ref class Registration : public System::Windows::Forms::Form
+
 }
+
+
+
+/*
+this->Close();
+IPIMS_Group9::Welcome^ formWelcome = gcnew Welcome();
+formWelcome->ShowDialog();
+this->Show();
+*/
+/*
+String^ constring = L"datasource=localhost;port=3306;username=root;password=Group9IPIMS";
+MySqlConnection^ conDataBase = gcnew MySqlConnection(constring);
+MySqlCommand^ cmdDataBase = gcnew MySqlCommand("select * from database.edata;", conDataBase);
+MySqlDataReader^ myReader;
+try {
+conDataBase->Open();
+myReader = cmdDataBase->ExecuteReader();
+}
+catch (Exception^ ex){
+MessageBox::Show(ex->Message);
+}
+*/

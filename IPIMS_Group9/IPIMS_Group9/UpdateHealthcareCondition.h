@@ -73,6 +73,7 @@ namespace IPIMS_Group9 {
 	private: System::Windows::Forms::ToolStripMenuItem^  editProfileToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  logoutToolStripMenuItem1;
 	private: System::Windows::Forms::ToolStripMenuItem^  logoutOfIPIMSToolStripMenuItem;
+	private: System::Windows::Forms::ComboBox^  comboBoxDoctorSelection;
 	protected:
 	private:
 		/// <summary>
@@ -120,6 +121,7 @@ namespace IPIMS_Group9 {
 			this->editProfileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->logoutToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->logoutOfIPIMSToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->comboBoxDoctorSelection = (gcnew System::Windows::Forms::ComboBox());
 			this->groupBox1->SuspendLayout();
 			this->menuStrip->SuspendLayout();
 			this->SuspendLayout();
@@ -164,7 +166,7 @@ namespace IPIMS_Group9 {
 			this->textBoxSymptoms->Multiline = true;
 			this->textBoxSymptoms->Name = L"textBoxSymptoms";
 			this->textBoxSymptoms->ScrollBars = System::Windows::Forms::ScrollBars::Both;
-			this->textBoxSymptoms->Size = System::Drawing::Size(489, 192);
+			this->textBoxSymptoms->Size = System::Drawing::Size(489, 172);
 			this->textBoxSymptoms->TabIndex = 7;
 			this->textBoxSymptoms->Text = L"Symptoms";
 			this->textBoxSymptoms->TextChanged += gcnew System::EventHandler(this, &UpdateHealthcareCondition::textBoxSymptoms_TextChanged);
@@ -197,7 +199,7 @@ namespace IPIMS_Group9 {
 			// 
 			this->buttonSave->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12.5F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->buttonSave->Location = System::Drawing::Point(442, 454);
+			this->buttonSave->Location = System::Drawing::Point(463, 451);
 			this->buttonSave->Name = L"buttonSave";
 			this->buttonSave->Size = System::Drawing::Size(115, 35);
 			this->buttonSave->TabIndex = 19;
@@ -209,7 +211,7 @@ namespace IPIMS_Group9 {
 			// 
 			this->buttonClear->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12.5F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->buttonClear->Location = System::Drawing::Point(442, 274);
+			this->buttonClear->Location = System::Drawing::Point(463, 254);
 			this->buttonClear->Name = L"buttonClear";
 			this->buttonClear->Size = System::Drawing::Size(115, 35);
 			this->buttonClear->TabIndex = 20;
@@ -222,9 +224,9 @@ namespace IPIMS_Group9 {
 			this->groupBox1->Controls->Add(this->label1);
 			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox1->Location = System::Drawing::Point(12, 274);
+			this->groupBox1->Location = System::Drawing::Point(12, 291);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(424, 215);
+			this->groupBox1->Size = System::Drawing::Size(424, 195);
 			this->groupBox1->TabIndex = 21;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Emergency Alert Conditions Include:";
@@ -408,11 +410,27 @@ namespace IPIMS_Group9 {
 			this->logoutOfIPIMSToolStripMenuItem->Size = System::Drawing::Size(159, 22);
 			this->logoutOfIPIMSToolStripMenuItem->Text = L"Logout of IPIMS";
 			// 
+			// comboBoxDoctorSelection
+			// 
+			this->comboBoxDoctorSelection->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->comboBoxDoctorSelection->FormattingEnabled = true;
+			this->comboBoxDoctorSelection->Items->AddRange(gcnew cli::array< System::Object^  >(3) {
+				L"Dr. Thomas Smith", L"Dr. Susan Enriquez",
+					L"Dr. Linda Chattin"
+			});
+			this->comboBoxDoctorSelection->Location = System::Drawing::Point(12, 259);
+			this->comboBoxDoctorSelection->Name = L"comboBoxDoctorSelection";
+			this->comboBoxDoctorSelection->Size = System::Drawing::Size(284, 26);
+			this->comboBoxDoctorSelection->TabIndex = 33;
+			this->comboBoxDoctorSelection->Text = L"Select a Doctor";
+			// 
 			// UpdateHealthcareCondition
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(590, 498);
+			this->Controls->Add(this->comboBoxDoctorSelection);
 			this->Controls->Add(this->menuStrip);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->buttonClear);
@@ -433,6 +451,7 @@ namespace IPIMS_Group9 {
 			this->menuStrip->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
+
 		}
 #pragma endregion
 
