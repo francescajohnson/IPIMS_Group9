@@ -766,11 +766,16 @@ namespace IPIMS_Group9 {
 			MySqlCommand^ cmdDataBase = gcnew MySqlCommand("INSERT INTO `group9_ipims`.`user_data` (`classification`, `first_name`,	`last_name`, `gender`,`date_of_birth`, `social_security_number`, `street_address`, `city`, `state`, `zip_code`, `phone_number`, `email`, `username`, `password`, `insurance_provider`, `insurance_contact`) VALUES (classification, '" + this->textBoxFirstName->Text + "', '" + this->textBoxLastName->Text + "',gender, '" + this->textBoxDateOfBirth->Text + "', '" + this->textBoxIdNumber->Text + "', '" + this->textBoxStreetAddress->Text + "', '" + this->textBoxCity->Text + "', '" + this->textBoxState->Text + "', '" + this->textBoxZipCode->Text + "', '" + this->textBoxPhoneNumber->Text + "', '" + textBoxEmailAddress + "', '" + this->textBoxUsername->Text + "', '" + this->textBoxPassword->Text + "', '" + this->textBoxHealthInsurance->Text + "', '" + textBoxHealthInsuranceNumber + "'); ", conDataBase);
 
 
-			MySqlDataReader^ myReader;
-
+			//MySqlDataReader^ myReader;
+			MySqlDataAdapter^ myAdapter;
 			try {
 				conDataBase->Open();
-				myReader = cmdDataBase->ExecuteReader();
+				//myReader = cmdDataBase->ExecuteReader();
+				myAdapter->InsertCommand(cmdDataBase);
+				/*while (myReader->Read()){
+				}*/
+
+
 			}
 			catch (Exception^ ex){
 				MessageBox::Show(ex->Message);
