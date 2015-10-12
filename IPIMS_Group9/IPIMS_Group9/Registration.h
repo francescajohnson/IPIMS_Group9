@@ -569,7 +569,6 @@ namespace IPIMS_Group9 {
 			this->buttonRegister->Text = L"Register";
 			this->buttonRegister->UseVisualStyleBackColor = true;
 			this->buttonRegister->Click += gcnew System::EventHandler(this, &Registration::buttonRegister_Click);
-			this->buttonRegister->Enter += gcnew System::EventHandler(this, &Registration::buttonRegister_Click);
 			// 
 			// groupBoxMedicalInformation
 			// 
@@ -813,17 +812,4 @@ this->Close();
 IPIMS_Group9::Welcome^ formWelcome = gcnew Welcome();
 formWelcome->ShowDialog();
 this->Show();
-*/
-/*
-String^ constring = L"datasource=localhost;port=3306;username=root;password=Group9IPIMS";
-MySqlConnection^ conDataBase = gcnew MySqlConnection(constring);
-MySqlCommand^ cmdDataBase = gcnew MySqlCommand("select * from database.edata;", conDataBase);
-MySqlDataReader^ myReader;
-try {
-conDataBase->Open();
-myReader = cmdDataBase->ExecuteReader();
-}
-catch (Exception^ ex){
-MessageBox::Show(ex->Message);
-}
 */

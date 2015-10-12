@@ -194,10 +194,26 @@ namespace IPIMS_Group9 {
 		}
 		else {
 			// MessageBox::Show("Please wait while the system logs you in."); 
-			this->Hide();
-			IPIMS_Group9::Welcome^ formWelcome = gcnew Welcome();
-			formWelcome->ShowDialog();
-			this->Show();
+
+			
+			String^ constring = L"datasource=localhost;port=3306;username=root;password=Group9IPIMS";
+			MySqlConnection^ conDataBase = gcnew MySqlConnection(constring);
+			MySqlCommand^ cmdDataBase = gcnew MySqlCommand("select * from database.edata;", conDataBase);
+			MySqlDataReader^ myReader;
+			try {
+			conDataBase->Open();
+			myReader = cmdDataBase->ExecuteReader();
+			while (true)
+			{
+				this->Hide();
+				IPIMS_Group9::Welcome^ formWelcome = gcnew Welcome();
+				formWelcome->ShowDialog();
+				this->Show();
+			}
+			}
+			catch (Exception^ ex){
+			MessageBox::Show(ex->Message);
+			}
 		}
 	}
 	private: System::Void textBoxUsername_TextChanged(System::Object^  sender, System::EventArgs^  e) {
