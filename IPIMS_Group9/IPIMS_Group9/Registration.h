@@ -1,6 +1,11 @@
 #include "LoggingIn.h"
 #include "Welcome.h"
+//#include "mysql_connection.h"
 
+//#include <cppconn/driver.h>
+//#include <cppconn/exception.h>
+//#include <cppconn/resultset.h>
+//#include <cppconn/statement.h>
 #include <iostream>
 #include <string>
 
@@ -93,8 +98,6 @@ namespace IPIMS_Group9 {
 	private: System::Windows::Forms::Label^  labelUsername;
 	private: System::Windows::Forms::Button^  buttonRegister;
 	private: System::Windows::Forms::GroupBox^  groupBoxMedicalInformation;
-
-
 	private: System::Windows::Forms::TextBox^  textBoxHealthInsuranceNumber;
 	private: System::Windows::Forms::Label^  labelHealthInsuranceNumber;
 	private: System::Windows::Forms::TextBox^  textBoxHealthInsurance;
@@ -102,8 +105,6 @@ namespace IPIMS_Group9 {
 	private: System::Windows::Forms::Label^  labelRegistration;
 	private: System::Windows::Forms::RadioButton^  radioButtonMale;
 	private: System::Windows::Forms::RadioButton^  radioButtonFemale;
-
-
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -310,7 +311,7 @@ namespace IPIMS_Group9 {
 			this->textBoxIdNumber->Name = L"textBoxIdNumber";
 			this->textBoxIdNumber->Size = System::Drawing::Size(72, 20);
 			this->textBoxIdNumber->TabIndex = 10;
-			this->textBoxIdNumber->Text = L"999-99-9999";
+			this->textBoxIdNumber->Text = L"999999999";
 			// 
 			// labelDateOfBirth
 			// 
@@ -327,7 +328,7 @@ namespace IPIMS_Group9 {
 			this->textBoxDateOfBirth->Name = L"textBoxDateOfBirth";
 			this->textBoxDateOfBirth->Size = System::Drawing::Size(71, 20);
 			this->textBoxDateOfBirth->TabIndex = 8;
-			this->textBoxDateOfBirth->Text = L"01/01/2121";
+			this->textBoxDateOfBirth->Text = L"01011985";
 			// 
 			// labelGender
 			// 
@@ -353,6 +354,7 @@ namespace IPIMS_Group9 {
 			this->textBoxFirstName->Size = System::Drawing::Size(205, 20);
 			this->textBoxFirstName->TabIndex = 4;
 			this->textBoxFirstName->Text = L"Julie";
+			this->textBoxFirstName->TextChanged += gcnew System::EventHandler(this, &Registration::textBoxFirstName_TextChanged);
 			// 
 			// labelLastName
 			// 
@@ -493,7 +495,7 @@ namespace IPIMS_Group9 {
 			this->textBoxPhoneNumber->Name = L"textBoxPhoneNumber";
 			this->textBoxPhoneNumber->Size = System::Drawing::Size(82, 20);
 			this->textBoxPhoneNumber->TabIndex = 4;
-			this->textBoxPhoneNumber->Text = L"623-555-1234";
+			this->textBoxPhoneNumber->Text = L"6235551234";
 			// 
 			// labelPhoneNumber
 			// 
@@ -559,7 +561,7 @@ namespace IPIMS_Group9 {
 			this->buttonRegister->TabIndex = 17;
 			this->buttonRegister->Text = L"Register";
 			this->buttonRegister->UseVisualStyleBackColor = true;
-			this->buttonRegister->Click += gcnew System::EventHandler(this, &Registration::buttonRegister_Click_1);
+			this->buttonRegister->Click += gcnew System::EventHandler(this, &Registration::buttonRegister_Click);
 			// 
 			// groupBoxMedicalInformation
 			// 
@@ -713,7 +715,6 @@ namespace IPIMS_Group9 {
 		gender = false;
 	}
 	private: System::Void radioButtonMale_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
-
 		gender = true;
 	}
 	private: System::Void buttonRegister_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -792,9 +793,10 @@ namespace IPIMS_Group9 {
 		}
 	}
 
-	private: System::Void buttonRegister_Click_1(System::Object^  sender, System::EventArgs^  e) {
+
+	private: System::Void textBoxFirstName_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 	}
-	}; // end of public ref class Registration : public System::Windows::Forms::Form
+}; // end of public ref class Registration : public System::Windows::Forms::Form
 
 }
 
