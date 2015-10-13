@@ -220,6 +220,9 @@ namespace IPIMS_Group9 {
 					formWelcome->ShowDialog();
 					this->Show();
 				}
+				else {
+					MessageBox::Show("Sorry the username or password you entered are incorrect.");
+				}
 			}
 			catch (Exception^ ex){
 				MessageBox::Show(ex->Message);
