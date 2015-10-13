@@ -3,6 +3,11 @@
 
 #pragma once
 
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 namespace IPIMS_Group9 {
 
 	using namespace System;
@@ -11,6 +16,7 @@ namespace IPIMS_Group9 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace MySql::Data::MySqlClient;
 
 	/// <summary>
 	/// Summary for LoggingIn
@@ -195,24 +201,28 @@ namespace IPIMS_Group9 {
 		else {
 			// MessageBox::Show("Please wait while the system logs you in."); 
 
-			
 			String^ constring = L"datasource=localhost;port=3306;username=root;password=Group9IPIMS";
 			MySqlConnection^ conDataBase = gcnew MySqlConnection(constring);
-			MySqlCommand^ cmdDataBase = gcnew MySqlCommand("select * from database.edata;", conDataBase);
+			MySqlCommand^ cmdDataBase = gcnew MySqlCommand("SELECT * from group9_ipims.user_data where username = '"+ this->textBoxUsername->Text+"' AND password = '"+this->textBoxPassword->Text+"';", conDataBase);
 			MySqlDataReader^ myReader;
 			try {
-			conDataBase->Open();
-			myReader = cmdDataBase->ExecuteReader();
-			while (true)
-			{
-				this->Hide();
-				IPIMS_Group9::Welcome^ formWelcome = gcnew Welcome();
-				formWelcome->ShowDialog();
-				this->Show();
-			}
+				conDataBase->Open();
+				myReader = cmdDataBase->ExecuteReader();
+				int count = 0;
+				while (myReader->Read())
+				{
+					count = count + 1;
+					
+				}
+				if (count == 1){
+					this->Hide();
+					IPIMS_Group9::Welcome^ formWelcome = gcnew Welcome();
+					formWelcome->ShowDialog();
+					this->Show();
+				}
 			}
 			catch (Exception^ ex){
-			MessageBox::Show(ex->Message);
+				MessageBox::Show(ex->Message);
 			}
 		}
 	}
