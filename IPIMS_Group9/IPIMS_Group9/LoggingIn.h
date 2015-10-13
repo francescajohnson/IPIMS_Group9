@@ -192,7 +192,7 @@ namespace IPIMS_Group9 {
 	private: System::Void buttonContinue_Click(System::Object^  sender, System::EventArgs^  e) {
 		if (checkBoxNewUser->Checked)
 		{
-			//MessageBox::Show("Taking you to the registration form.");
+			MessageBox::Show("Taking you to the registration form soon.....");
 			/* IPIMS_Group9::Registration^ formRegistration = gcnew Registration();
 			this->Hide();
 			formRegistration->ShowDialog();
