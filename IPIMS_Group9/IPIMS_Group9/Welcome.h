@@ -327,6 +327,7 @@ namespace IPIMS_Group9 {
 			this->label1->Size = System::Drawing::Size(452, 22);
 			this->label1->TabIndex = 35;
 			this->label1->Text = L"Display Emergency Alerts";
+			this->label1->Visible = false;
 			// 
 			// Welcome
 			// 
@@ -349,6 +350,7 @@ namespace IPIMS_Group9 {
 #pragma endregion
 	private: System::Void labelWelcome_Click(System::Object^  sender, System::EventArgs^  e) {
 		// Change Welcome label to display name of user
+
 	}
 	private: System::Void scheduleToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 		IPIMS_Group9::ScheduleAppointment^ formScheduleAppt = gcnew ScheduleAppointment();

@@ -477,7 +477,7 @@ namespace IPIMS_Group9 {
 	private: System::Void checkBoxEmergencyAlert_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 	}
 
-			 /*	KAVITAS CODE:::
+			 /*	KAVITAS CODE::: I have not yet integrated the doctor... 
 			 private: System::Void buttonSave_Click(System::Object^  sender, System::EventArgs^  e) {
 		String^ constring = L"datasource=localhost;port=3306;username=root;password=Group9IPIMS";
 		MySqlConnection^ conDataBase = gcnew MySqlConnection(constring);
