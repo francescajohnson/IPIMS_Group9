@@ -1,7 +1,8 @@
 #include "ScheduleAppointment.h"
 #include "ViewAppointments.h"
 #include "UpdateHealthcareCondition.h"
-
+#include <string>
+#include <msclr\marshal_cppstd.h>
 #pragma once
 
 namespace IPIMS_Group9 {
@@ -12,7 +13,8 @@ namespace IPIMS_Group9 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	using namespace std;
+	using namespace msclr::interop;
 	/// <summary>
 	/// Summary for Welcome
 	/// </summary>
@@ -67,6 +69,8 @@ namespace IPIMS_Group9 {
 	private: System::Windows::Forms::Label^  labelPleaseSelectMenuOption;
 	private: System::Windows::Forms::Label^  labelWelcome;
 	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::Button^  ClassificationButton;
+
 
 	private:
 		/// <summary>
@@ -109,6 +113,7 @@ namespace IPIMS_Group9 {
 			this->labelPleaseSelectMenuOption = (gcnew System::Windows::Forms::Label());
 			this->labelWelcome = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->ClassificationButton = (gcnew System::Windows::Forms::Button());
 			this->menuStrip->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -247,32 +252,32 @@ namespace IPIMS_Group9 {
 			// editProfileInformationToolStripMenuItem
 			// 
 			this->editProfileInformationToolStripMenuItem->Name = L"editProfileInformationToolStripMenuItem";
-			this->editProfileInformationToolStripMenuItem->Size = System::Drawing::Size(239, 22);
+			this->editProfileInformationToolStripMenuItem->Size = System::Drawing::Size(238, 22);
 			this->editProfileInformationToolStripMenuItem->Text = L"Analysis of health outcomes";
 			// 
 			// report2ToolStripMenuItem
 			// 
 			this->report2ToolStripMenuItem->Name = L"report2ToolStripMenuItem";
-			this->report2ToolStripMenuItem->Size = System::Drawing::Size(239, 22);
+			this->report2ToolStripMenuItem->Size = System::Drawing::Size(238, 22);
 			this->report2ToolStripMenuItem->Text = L"Tracking of the admission rates";
 			// 
 			// analysisOfTypeOfPatientsToolStripMenuItem
 			// 
 			this->analysisOfTypeOfPatientsToolStripMenuItem->Name = L"analysisOfTypeOfPatientsToolStripMenuItem";
-			this->analysisOfTypeOfPatientsToolStripMenuItem->Size = System::Drawing::Size(239, 22);
+			this->analysisOfTypeOfPatientsToolStripMenuItem->Size = System::Drawing::Size(238, 22);
 			this->analysisOfTypeOfPatientsToolStripMenuItem->Text = L"Analysis of type of patients";
 			// 
 			// analysisOfPatientPopulationToolStripMenuItem
 			// 
 			this->analysisOfPatientPopulationToolStripMenuItem->Name = L"analysisOfPatientPopulationToolStripMenuItem";
-			this->analysisOfPatientPopulationToolStripMenuItem->Size = System::Drawing::Size(239, 22);
+			this->analysisOfPatientPopulationToolStripMenuItem->Size = System::Drawing::Size(238, 22);
 			this->analysisOfPatientPopulationToolStripMenuItem->Text = L"Analysis of patient population";
 			// 
 			// logoutToolStripMenuItem
 			// 
 			this->logoutToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->editProfileToolStripMenuItem });
 			this->logoutToolStripMenuItem->Name = L"logoutToolStripMenuItem";
-			this->logoutToolStripMenuItem->Size = System::Drawing::Size(85, 20);
+			this->logoutToolStripMenuItem->Size = System::Drawing::Size(84, 20);
 			this->logoutToolStripMenuItem->Text = L"Profile Tools";
 			// 
 			// editProfileToolStripMenuItem
@@ -329,11 +334,22 @@ namespace IPIMS_Group9 {
 			this->label1->Text = L"Display Emergency Alerts";
 			this->label1->Visible = false;
 			// 
+			// ClassificationButton
+			// 
+			this->ClassificationButton->Location = System::Drawing::Point(255, 231);
+			this->ClassificationButton->Name = L"ClassificationButton";
+			this->ClassificationButton->Size = System::Drawing::Size(95, 31);
+			this->ClassificationButton->TabIndex = 36;
+			this->ClassificationButton->Text = L"Classification";
+			this->ClassificationButton->UseVisualStyleBackColor = true;
+			this->ClassificationButton->Click += gcnew System::EventHandler(this, &Welcome::ClassificationButton_Click);
+			// 
 			// Welcome
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(594, 502);
+			this->Controls->Add(this->ClassificationButton);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->labelPleaseSelectMenuOption);
 			this->Controls->Add(this->labelWelcome);
@@ -370,5 +386,30 @@ namespace IPIMS_Group9 {
 		formViewAppts->ShowDialog();
 		this->Show();
 	}
+private: System::Void ClassificationButton_Click(System::Object^  sender, System::EventArgs^  e) {
+	//just going to create a char for now
+	char classification; //this will eventually be equal to logged in user's classification data from database
+	if (classification == 'P')
+	{
+		//load patient page
+	}
+	else if (classification == 'D')
+	{
+		//load doctor page
+	}
+	else if (classification == 'L')
+	{
+		//load labstaff page
+	}
+	else if (classification == 'O')
+	{
+		//load officestaff page
+	}
+	else
+	{
+		//if classification somehow undeclared
+	}
+		
+}
 };
 }

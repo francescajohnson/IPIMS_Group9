@@ -5,8 +5,9 @@
 
 #include <iostream>
 #include <string>
-
+#include <msclr\marshal_cppstd.h>
 using namespace std;
+extern string globalUsername;
 
 namespace IPIMS_Group9 {
 
@@ -31,6 +32,7 @@ namespace IPIMS_Group9 {
 			//TODO: Add the constructor code here
 			//
 		}
+
 
 	protected:
 		/// <summary>
@@ -215,6 +217,9 @@ namespace IPIMS_Group9 {
 					
 				}
 				if (count == 1){
+					System::String^ textboxString = this->textBoxUsername->Text;
+					//converting from System::String^ into std::string
+					globalUsername = msclr::interop::marshal_as<std::string>(textboxString); //storing username in global variable
 					this->Hide();
 					IPIMS_Group9::Welcome^ formWelcome = gcnew Welcome();
 					formWelcome->ShowDialog();
