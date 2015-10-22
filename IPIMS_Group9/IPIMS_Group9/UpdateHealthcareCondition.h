@@ -40,11 +40,11 @@ namespace IPIMS_Group9 {
 		}
 
 	protected:
-	private: System::Windows::Forms::CheckBox^  checkBoxEmergencyAlert;
-	private: System::Windows::Forms::Label^  labelSymptoms;
-	private: System::Windows::Forms::TextBox^  textBoxSymptoms;
+
+
+
 	private: System::Windows::Forms::Label^  labelUpdateHealthcareConditions;
-	private: System::Windows::Forms::Label^  label1;
+
 	private: System::Windows::Forms::Button^  buttonSave;
 	private: System::Windows::Forms::Button^  buttonClear;
 	private: System::Windows::Forms::GroupBox^  groupBox1;
@@ -74,6 +74,24 @@ namespace IPIMS_Group9 {
 	private: System::Windows::Forms::ToolStripMenuItem^  logoutToolStripMenuItem1;
 	private: System::Windows::Forms::ToolStripMenuItem^  logoutOfIPIMSToolStripMenuItem;
 	private: System::Windows::Forms::ComboBox^  comboBoxDoctorSelection;
+	private: System::Windows::Forms::GroupBox^  groupBoxPersonalInformation;
+	private: System::Windows::Forms::Label^  labelDateOfBirth;
+	private: System::Windows::Forms::TextBox^  textBoxDateOfBirth;
+	private: System::Windows::Forms::TextBox^  textBoxSymptoms;
+	private: System::Windows::Forms::Label^  labelSymptoms;
+	private: System::Windows::Forms::TextBox^  textBoxLastName;
+	private: System::Windows::Forms::TextBox^  textBoxFirstName;
+	private: System::Windows::Forms::Label^  labelLastName;
+	private: System::Windows::Forms::Label^  labelFirstName;
+
+
+	private: System::Windows::Forms::CheckBox^  checkBoxWeakness;
+	private: System::Windows::Forms::CheckBox^  checkBoxSuicide;
+	private: System::Windows::Forms::CheckBox^  checkBoxWheezing;
+	private: System::Windows::Forms::CheckBox^  checkBoxBloodUrine;
+	private: System::Windows::Forms::CheckBox^  checkBoxTenderness;
+	private: System::Windows::Forms::CheckBox^  checkBoxChestPains;
+
 	protected:
 	private:
 		/// <summary>
@@ -88,11 +106,7 @@ namespace IPIMS_Group9 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->checkBoxEmergencyAlert = (gcnew System::Windows::Forms::CheckBox());
-			this->labelSymptoms = (gcnew System::Windows::Forms::Label());
-			this->textBoxSymptoms = (gcnew System::Windows::Forms::TextBox());
 			this->labelUpdateHealthcareConditions = (gcnew System::Windows::Forms::Label());
-			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->buttonSave = (gcnew System::Windows::Forms::Button());
 			this->buttonClear = (gcnew System::Windows::Forms::Button());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
@@ -122,54 +136,25 @@ namespace IPIMS_Group9 {
 			this->logoutToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->logoutOfIPIMSToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->comboBoxDoctorSelection = (gcnew System::Windows::Forms::ComboBox());
+			this->groupBoxPersonalInformation = (gcnew System::Windows::Forms::GroupBox());
+			this->labelDateOfBirth = (gcnew System::Windows::Forms::Label());
+			this->textBoxDateOfBirth = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxSymptoms = (gcnew System::Windows::Forms::TextBox());
+			this->labelSymptoms = (gcnew System::Windows::Forms::Label());
+			this->textBoxLastName = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxFirstName = (gcnew System::Windows::Forms::TextBox());
+			this->labelLastName = (gcnew System::Windows::Forms::Label());
+			this->labelFirstName = (gcnew System::Windows::Forms::Label());
+			this->checkBoxWeakness = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBoxChestPains = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBoxTenderness = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBoxBloodUrine = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBoxWheezing = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBoxSuicide = (gcnew System::Windows::Forms::CheckBox());
 			this->groupBox1->SuspendLayout();
 			this->menuStrip->SuspendLayout();
+			this->groupBoxPersonalInformation->SuspendLayout();
 			this->SuspendLayout();
-			// 
-			// checkBoxEmergencyAlert
-			// 
-			this->checkBoxEmergencyAlert->AccessibleRole = System::Windows::Forms::AccessibleRole::Alert;
-			this->checkBoxEmergencyAlert->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->checkBoxEmergencyAlert->ForeColor = System::Drawing::Color::Red;
-			this->checkBoxEmergencyAlert->Location = System::Drawing::Point(441, 415);
-			this->checkBoxEmergencyAlert->Margin = System::Windows::Forms::Padding(2);
-			this->checkBoxEmergencyAlert->Name = L"checkBoxEmergencyAlert";
-			this->checkBoxEmergencyAlert->Size = System::Drawing::Size(138, 31);
-			this->checkBoxEmergencyAlert->TabIndex = 1;
-			this->checkBoxEmergencyAlert->Text = L"Emergency Alert";
-			this->checkBoxEmergencyAlert->UseVisualStyleBackColor = true;
-			this->checkBoxEmergencyAlert->CheckedChanged += gcnew System::EventHandler(this, &UpdateHealthcareCondition::checkBoxEmergencyAlert_CheckedChanged);
-			// 
-			// labelSymptoms
-			// 
-			this->labelSymptoms->FlatStyle = System::Windows::Forms::FlatStyle::System;
-			this->labelSymptoms->Font = (gcnew System::Drawing::Font(L"Arial", 10.5F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->labelSymptoms->Location = System::Drawing::Point(11, 77);
-			this->labelSymptoms->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->labelSymptoms->Name = L"labelSymptoms";
-			this->labelSymptoms->Size = System::Drawing::Size(75, 22);
-			this->labelSymptoms->TabIndex = 2;
-			this->labelSymptoms->Text = L"Symptoms:";
-			// 
-			// textBoxSymptoms
-			// 
-			this->textBoxSymptoms->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBoxSymptoms->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBoxSymptoms->ForeColor = System::Drawing::SystemColors::InactiveCaption;
-			this->textBoxSymptoms->Location = System::Drawing::Point(90, 77);
-			this->textBoxSymptoms->Margin = System::Windows::Forms::Padding(2);
-			this->textBoxSymptoms->Multiline = true;
-			this->textBoxSymptoms->Name = L"textBoxSymptoms";
-			this->textBoxSymptoms->ScrollBars = System::Windows::Forms::ScrollBars::Both;
-			this->textBoxSymptoms->Size = System::Drawing::Size(489, 172);
-			this->textBoxSymptoms->TabIndex = 7;
-			this->textBoxSymptoms->Text = L"Symptoms";
-			this->textBoxSymptoms->TextChanged += gcnew System::EventHandler(this, &UpdateHealthcareCondition::textBoxSymptoms_TextChanged);
 			// 
 			// labelUpdateHealthcareConditions
 			// 
@@ -181,19 +166,6 @@ namespace IPIMS_Group9 {
 			this->labelUpdateHealthcareConditions->Size = System::Drawing::Size(412, 36);
 			this->labelUpdateHealthcareConditions->TabIndex = 8;
 			this->labelUpdateHealthcareConditions->Text = L"Update Healthcare Conditions";
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(6, 28);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(409, 156);
-			this->label1->TabIndex = 9;
-			this->label1->Text = L"  = Suspected heart attack or stroke\r\n  = Sudden or extreme difficulty breathing\r"
-				L"\n  = Sudden loss of consciousness\r\n  = Severe bleeding\r\n  = Severe abdominal pai"
-				L"n\r\n  = Injuries to one or both eyes";
 			// 
 			// buttonSave
 			// 
@@ -221,15 +193,20 @@ namespace IPIMS_Group9 {
 			// 
 			// groupBox1
 			// 
-			this->groupBox1->Controls->Add(this->label1);
-			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->groupBox1->Controls->Add(this->checkBoxSuicide);
+			this->groupBox1->Controls->Add(this->checkBoxWheezing);
+			this->groupBox1->Controls->Add(this->checkBoxBloodUrine);
+			this->groupBox1->Controls->Add(this->checkBoxTenderness);
+			this->groupBox1->Controls->Add(this->checkBoxChestPains);
+			this->groupBox1->Controls->Add(this->checkBoxWeakness);
+			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->groupBox1->Location = System::Drawing::Point(12, 291);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Size = System::Drawing::Size(424, 195);
 			this->groupBox1->TabIndex = 21;
 			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"Emergency Alert Conditions Include:";
+			this->groupBox1->Text = L"Is the Patient experiencing any of the following\?";
 			// 
 			// menuStrip
 			// 
@@ -419,26 +396,183 @@ namespace IPIMS_Group9 {
 				L"Dr. Thomas Smith", L"Dr. Susan Enriquez",
 					L"Dr. Linda Chattin"
 			});
-			this->comboBoxDoctorSelection->Location = System::Drawing::Point(12, 259);
+			this->comboBoxDoctorSelection->Location = System::Drawing::Point(12, 242);
 			this->comboBoxDoctorSelection->Name = L"comboBoxDoctorSelection";
 			this->comboBoxDoctorSelection->Size = System::Drawing::Size(284, 26);
 			this->comboBoxDoctorSelection->TabIndex = 33;
 			this->comboBoxDoctorSelection->Text = L"Select a Doctor";
+			// 
+			// groupBoxPersonalInformation
+			// 
+			this->groupBoxPersonalInformation->Controls->Add(this->labelDateOfBirth);
+			this->groupBoxPersonalInformation->Controls->Add(this->textBoxDateOfBirth);
+			this->groupBoxPersonalInformation->Controls->Add(this->textBoxSymptoms);
+			this->groupBoxPersonalInformation->Controls->Add(this->labelSymptoms);
+			this->groupBoxPersonalInformation->Controls->Add(this->textBoxLastName);
+			this->groupBoxPersonalInformation->Controls->Add(this->textBoxFirstName);
+			this->groupBoxPersonalInformation->Controls->Add(this->labelLastName);
+			this->groupBoxPersonalInformation->Controls->Add(this->labelFirstName);
+			this->groupBoxPersonalInformation->Location = System::Drawing::Point(12, 69);
+			this->groupBoxPersonalInformation->Name = L"groupBoxPersonalInformation";
+			this->groupBoxPersonalInformation->Size = System::Drawing::Size(564, 167);
+			this->groupBoxPersonalInformation->TabIndex = 34;
+			this->groupBoxPersonalInformation->TabStop = false;
+			this->groupBoxPersonalInformation->Text = L"Personal Information:";
+			// 
+			// labelDateOfBirth
+			// 
+			this->labelDateOfBirth->AutoSize = true;
+			this->labelDateOfBirth->Location = System::Drawing::Point(392, 41);
+			this->labelDateOfBirth->Name = L"labelDateOfBirth";
+			this->labelDateOfBirth->Size = System::Drawing::Size(69, 13);
+			this->labelDateOfBirth->TabIndex = 9;
+			this->labelDateOfBirth->Text = L"Date of Birth:";
+			// 
+			// textBoxDateOfBirth
+			// 
+			this->textBoxDateOfBirth->Location = System::Drawing::Point(467, 38);
+			this->textBoxDateOfBirth->Name = L"textBoxDateOfBirth";
+			this->textBoxDateOfBirth->Size = System::Drawing::Size(71, 20);
+			this->textBoxDateOfBirth->TabIndex = 8;
+			this->textBoxDateOfBirth->Text = L"01/01/2121";
+			// 
+			// textBoxSymptoms
+			// 
+			this->textBoxSymptoms->Location = System::Drawing::Point(73, 64);
+			this->textBoxSymptoms->Multiline = true;
+			this->textBoxSymptoms->Name = L"textBoxSymptoms";
+			this->textBoxSymptoms->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
+			this->textBoxSymptoms->Size = System::Drawing::Size(465, 97);
+			this->textBoxSymptoms->TabIndex = 7;
+			this->textBoxSymptoms->Text = L"What are the symptoms\?";
+			// 
+			// labelSymptoms
+			// 
+			this->labelSymptoms->AutoSize = true;
+			this->labelSymptoms->Location = System::Drawing::Point(9, 67);
+			this->labelSymptoms->Name = L"labelSymptoms";
+			this->labelSymptoms->Size = System::Drawing::Size(58, 13);
+			this->labelSymptoms->TabIndex = 6;
+			this->labelSymptoms->Text = L"Symptoms:";
+			// 
+			// textBoxLastName
+			// 
+			this->textBoxLastName->Location = System::Drawing::Point(266, 38);
+			this->textBoxLastName->Name = L"textBoxLastName";
+			this->textBoxLastName->Size = System::Drawing::Size(120, 20);
+			this->textBoxLastName->TabIndex = 5;
+			this->textBoxLastName->Text = L"Roberts";
+			// 
+			// textBoxFirstName
+			// 
+			this->textBoxFirstName->Location = System::Drawing::Point(73, 38);
+			this->textBoxFirstName->Name = L"textBoxFirstName";
+			this->textBoxFirstName->Size = System::Drawing::Size(120, 20);
+			this->textBoxFirstName->TabIndex = 4;
+			this->textBoxFirstName->Text = L"Julie";
+			// 
+			// labelLastName
+			// 
+			this->labelLastName->AutoSize = true;
+			this->labelLastName->Location = System::Drawing::Point(199, 41);
+			this->labelLastName->Name = L"labelLastName";
+			this->labelLastName->Size = System::Drawing::Size(61, 13);
+			this->labelLastName->TabIndex = 3;
+			this->labelLastName->Text = L"Last Name:";
+			// 
+			// labelFirstName
+			// 
+			this->labelFirstName->AutoSize = true;
+			this->labelFirstName->Location = System::Drawing::Point(7, 41);
+			this->labelFirstName->Name = L"labelFirstName";
+			this->labelFirstName->Size = System::Drawing::Size(60, 13);
+			this->labelFirstName->TabIndex = 0;
+			this->labelFirstName->Text = L"First Name:";
+			// 
+			// checkBoxWeakness
+			// 
+			this->checkBoxWeakness->AutoSize = true;
+			this->checkBoxWeakness->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->checkBoxWeakness->Location = System::Drawing::Point(6, 31);
+			this->checkBoxWeakness->Name = L"checkBoxWeakness";
+			this->checkBoxWeakness->Size = System::Drawing::Size(170, 17);
+			this->checkBoxWeakness->TabIndex = 35;
+			this->checkBoxWeakness->Text = L"Weakness in arms and/or legs";
+			this->checkBoxWeakness->UseVisualStyleBackColor = true;
+			// 
+			// checkBoxChestPains
+			// 
+			this->checkBoxChestPains->AutoSize = true;
+			this->checkBoxChestPains->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->checkBoxChestPains->Location = System::Drawing::Point(6, 54);
+			this->checkBoxChestPains->Name = L"checkBoxChestPains";
+			this->checkBoxChestPains->Size = System::Drawing::Size(81, 17);
+			this->checkBoxChestPains->TabIndex = 36;
+			this->checkBoxChestPains->Text = L"Chest pains";
+			this->checkBoxChestPains->UseVisualStyleBackColor = true;
+			// 
+			// checkBoxTenderness
+			// 
+			this->checkBoxTenderness->AutoSize = true;
+			this->checkBoxTenderness->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->checkBoxTenderness->Location = System::Drawing::Point(6, 77);
+			this->checkBoxTenderness->Name = L"checkBoxTenderness";
+			this->checkBoxTenderness->Size = System::Drawing::Size(229, 17);
+			this->checkBoxTenderness->TabIndex = 37;
+			this->checkBoxTenderness->Text = L"Tenderness and pain in the back of the leg";
+			this->checkBoxTenderness->UseVisualStyleBackColor = true;
+			// 
+			// checkBoxBloodUrine
+			// 
+			this->checkBoxBloodUrine->AutoSize = true;
+			this->checkBoxBloodUrine->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->checkBoxBloodUrine->Location = System::Drawing::Point(6, 100);
+			this->checkBoxBloodUrine->Name = L"checkBoxBloodUrine";
+			this->checkBoxBloodUrine->Size = System::Drawing::Size(150, 17);
+			this->checkBoxBloodUrine->TabIndex = 38;
+			this->checkBoxBloodUrine->Text = L"Blood in the patient\'s urine";
+			this->checkBoxBloodUrine->UseVisualStyleBackColor = true;
+			// 
+			// checkBoxWheezing
+			// 
+			this->checkBoxWheezing->AutoSize = true;
+			this->checkBoxWheezing->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->checkBoxWheezing->Location = System::Drawing::Point(6, 123);
+			this->checkBoxWheezing->Name = L"checkBoxWheezing";
+			this->checkBoxWheezing->Size = System::Drawing::Size(148, 17);
+			this->checkBoxWheezing->TabIndex = 39;
+			this->checkBoxWheezing->Text = L"Wheezing while breathing";
+			this->checkBoxWheezing->UseVisualStyleBackColor = true;
+			// 
+			// checkBoxSuicide
+			// 
+			this->checkBoxSuicide->AutoSize = true;
+			this->checkBoxSuicide->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->checkBoxSuicide->Location = System::Drawing::Point(6, 146);
+			this->checkBoxSuicide->Name = L"checkBoxSuicide";
+			this->checkBoxSuicide->Size = System::Drawing::Size(107, 17);
+			this->checkBoxSuicide->TabIndex = 40;
+			this->checkBoxSuicide->Text = L"Suicidal thoughts";
+			this->checkBoxSuicide->UseVisualStyleBackColor = true;
 			// 
 			// UpdateHealthcareCondition
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(590, 498);
+			this->Controls->Add(this->groupBoxPersonalInformation);
 			this->Controls->Add(this->comboBoxDoctorSelection);
 			this->Controls->Add(this->menuStrip);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->buttonClear);
 			this->Controls->Add(this->buttonSave);
 			this->Controls->Add(this->labelUpdateHealthcareConditions);
-			this->Controls->Add(this->textBoxSymptoms);
-			this->Controls->Add(this->labelSymptoms);
-			this->Controls->Add(this->checkBoxEmergencyAlert);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::Fixed3D;
 			this->HelpButton = true;
 			this->Margin = System::Windows::Forms::Padding(2);
@@ -449,6 +583,8 @@ namespace IPIMS_Group9 {
 			this->groupBox1->PerformLayout();
 			this->menuStrip->ResumeLayout(false);
 			this->menuStrip->PerformLayout();
+			this->groupBoxPersonalInformation->ResumeLayout(false);
+			this->groupBoxPersonalInformation->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -458,19 +594,71 @@ namespace IPIMS_Group9 {
 	private: System::Void buttonSave_Click(System::Object^  sender, System::EventArgs^  e) {
 
 
-		if (textBoxSymptoms->Text)
+		if (this->checkBoxWeakness->Checked)
 		{
-			if (checkBoxEmergencyAlert->Checked)
-				MessageBox::Show("Our staff will contact you as soon as possible");
-			else
-				MessageBox::Show("The symptoms have been saved.");
+			MessageBox::Show("Thank you for updating your health conditions");
+			MessageBox::Show("IPIMS will notify the healthcare provider with the severe conditions");
+			MessageBox::Show("This is an emergency, an alert has been triggered to the available emergency doctor");
 		}
-		else
+		if (this->checkBoxChestPains->Checked)
+		{
+			MessageBox::Show("Thank you for updating your health conditions");
+			MessageBox::Show("IPIMS will notify the healthcare provider with the severe conditions");
+			MessageBox::Show("This is an emergency, an alert has been triggered to the available emergency doctor");
+			
+		}
+		if (this->checkBoxTenderness->Checked)
+		{
+			MessageBox::Show("Thank you for updating your health conditions");
+			MessageBox::Show("IPIMS will notify the healthcare provider with the severe conditions");
+			MessageBox::Show("This is an emergency, an alert has been triggered to the available emergency doctor");
+		}
+		if (this->checkBoxBloodUrine->Checked)
+		{
+			MessageBox::Show("Thank you for updating your health conditions");
+			MessageBox::Show("IPIMS will notify the healthcare provider with the severe conditions");
+			MessageBox::Show("This is an emergency, an alert has been triggered to the available emergency doctor");
+		}
+		if (this->checkBoxWheezing->Checked)
+		{
+			MessageBox::Show("Thank you for updating your health conditions");
+			MessageBox::Show("IPIMS will notify the healthcare provider with the severe conditions");
+		}
+		if (this->checkBoxSuicide->Checked)
+		{
+			MessageBox::Show("Thank you for updating your health conditions");
+			MessageBox::Show("IPIMS will notify the healthcare provider with the severe conditions");
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		/*if (textBoxSymptoms->Text)
+			{
+			if (checkBoxEmergencyAlert->Checked)
+			MessageBox::Show("Our staff will contact you as soon as possible");
+			else
+			MessageBox::Show("The symptoms have been saved.");
+			}
+			else
 			MessageBox::Show("Please enter data");
+			*/
+
 	}
+
 	private: System::Void buttonClear_Click(System::Object^  sender, System::EventArgs^  e) {
 		this->textBoxSymptoms->Text = "";
-		this->checkBoxEmergencyAlert->Checked = false;
+		//this->checkBoxEmergencyAlert->Checked = false;
 	}
 	private: System::Void textBoxSymptoms_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 	}
