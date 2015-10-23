@@ -73,11 +73,15 @@ namespace IPIMS_Group9 {
 	private: System::Windows::Forms::ToolStripMenuItem^  logoutOfIPIMSToolStripMenuItem;
 	private: System::Windows::Forms::ComboBox^  comboBoxDoctorSelection;
 	private: System::Windows::Forms::GroupBox^  groupBox1;
-	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::TextBox^  textBoxSymptoms;
 	private: System::Windows::Forms::Button^  buttonClear;
 	private: System::Windows::Forms::Button^  buttonSave;
-	private: System::Windows::Forms::CheckBox^  checkBoxEmergencyAlert;
+	private: System::Windows::Forms::CheckBox^  checkBoxWeakness;
+	private: System::Windows::Forms::CheckBox^  checkBoxSuicide;
+	private: System::Windows::Forms::CheckBox^  checkBoxWheezing;
+	private: System::Windows::Forms::CheckBox^  checkBoxBloodUrine;
+	private: System::Windows::Forms::CheckBox^  checkBoxTenderness;
+	private: System::Windows::Forms::CheckBox^  checkBoxChestPains;
 
 
 	private:
@@ -121,11 +125,15 @@ namespace IPIMS_Group9 {
 			this->logoutOfIPIMSToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->comboBoxDoctorSelection = (gcnew System::Windows::Forms::ComboBox());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->textBoxSymptoms = (gcnew System::Windows::Forms::TextBox());
 			this->buttonClear = (gcnew System::Windows::Forms::Button());
 			this->buttonSave = (gcnew System::Windows::Forms::Button());
-			this->checkBoxEmergencyAlert = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBoxWeakness = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBoxChestPains = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBoxTenderness = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBoxBloodUrine = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBoxWheezing = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBoxSuicide = (gcnew System::Windows::Forms::CheckBox());
 			this->menuStrip->SuspendLayout();
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
@@ -349,7 +357,12 @@ namespace IPIMS_Group9 {
 			// 
 			// groupBox1
 			// 
-			this->groupBox1->Controls->Add(this->label1);
+			this->groupBox1->Controls->Add(this->checkBoxSuicide);
+			this->groupBox1->Controls->Add(this->checkBoxWheezing);
+			this->groupBox1->Controls->Add(this->checkBoxBloodUrine);
+			this->groupBox1->Controls->Add(this->checkBoxTenderness);
+			this->groupBox1->Controls->Add(this->checkBoxChestPains);
+			this->groupBox1->Controls->Add(this->checkBoxWeakness);
 			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->groupBox1->Location = System::Drawing::Point(12, 294);
@@ -358,19 +371,6 @@ namespace IPIMS_Group9 {
 			this->groupBox1->TabIndex = 43;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Emergency Alert Conditions Include:";
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(6, 28);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(409, 156);
-			this->label1->TabIndex = 9;
-			this->label1->Text = L"  = Suspected heart attack or stroke\r\n  = Sudden or extreme difficulty breathing\r"
-				L"\n  = Sudden loss of consciousness\r\n  = Severe bleeding\r\n  = Severe abdominal pai"
-				L"n\r\n  = Injuries to one or both eyes";
 			// 
 			// textBoxSymptoms
 			// 
@@ -411,20 +411,6 @@ namespace IPIMS_Group9 {
 			this->buttonSave->Text = L"Save";
 			this->buttonSave->UseVisualStyleBackColor = true;
 			// 
-			// checkBoxEmergencyAlert
-			// 
-			this->checkBoxEmergencyAlert->AccessibleRole = System::Windows::Forms::AccessibleRole::Alert;
-			this->checkBoxEmergencyAlert->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->checkBoxEmergencyAlert->ForeColor = System::Drawing::Color::Red;
-			this->checkBoxEmergencyAlert->Location = System::Drawing::Point(441, 418);
-			this->checkBoxEmergencyAlert->Margin = System::Windows::Forms::Padding(2);
-			this->checkBoxEmergencyAlert->Name = L"checkBoxEmergencyAlert";
-			this->checkBoxEmergencyAlert->Size = System::Drawing::Size(138, 31);
-			this->checkBoxEmergencyAlert->TabIndex = 39;
-			this->checkBoxEmergencyAlert->Text = L"Emergency Alert";
-			this->checkBoxEmergencyAlert->UseVisualStyleBackColor = true;
-			// 
 			// EmergencyAlert
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -435,7 +421,6 @@ namespace IPIMS_Group9 {
 			this->Controls->Add(this->textBoxSymptoms);
 			this->Controls->Add(this->buttonClear);
 			this->Controls->Add(this->buttonSave);
-			this->Controls->Add(this->checkBoxEmergencyAlert);
 			this->Controls->Add(this->menuStrip);
 			this->Controls->Add(this->labelEmergencyAlert);
 			this->Controls->Add(this->labelSymptoms);
@@ -453,19 +438,17 @@ namespace IPIMS_Group9 {
 #pragma endregion
 	private: System::Void buttonClear_Click(System::Object^  sender, System::EventArgs^  e) {
 		this->textBoxSymptoms->Text = "";
-		this->checkBoxEmergencyAlert->Checked = false;
+		this->checkBoxWeakness->Checked = false;
+		this->checkBoxChestPains->Checked = false;
+		this->checkBoxTenderness->Checked = false;
+		this->checkBoxWheezing->Checked = false;
+		this->checkBoxBloodUrine->Checked = false;
+		this->checkBoxSuicide->Checked = false;
 	}
 
 	private: System::Void buttonSave_Click(System::Object^  sender, System::EventArgs^  e) {
-		if (textBoxSymptoms->Text)
-		{
-			if (checkBoxEmergencyAlert->Checked)
-				MessageBox::Show("Our staff will contact you as soon as possible");
-			else
-				MessageBox::Show("The symptoms have been saved.");
-		}
-		else
-			MessageBox::Show("Please enter data");
+		
+
 	}
 
 

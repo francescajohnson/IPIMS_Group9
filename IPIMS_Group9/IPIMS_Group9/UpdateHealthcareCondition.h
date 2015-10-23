@@ -592,73 +592,43 @@ namespace IPIMS_Group9 {
 #pragma endregion
 
 	private: System::Void buttonSave_Click(System::Object^  sender, System::EventArgs^  e) {
-
-
-		if (this->checkBoxWeakness->Checked)
+		if (textBoxSymptoms->Text)
 		{
-			MessageBox::Show("Thank you for updating your health conditions");
-			MessageBox::Show("IPIMS will notify the healthcare provider with the severe conditions");
-			MessageBox::Show("This is an emergency, an alert has been triggered to the available emergency doctor");
-		}
-		if (this->checkBoxChestPains->Checked)
-		{
-			MessageBox::Show("Thank you for updating your health conditions");
-			MessageBox::Show("IPIMS will notify the healthcare provider with the severe conditions");
-			MessageBox::Show("This is an emergency, an alert has been triggered to the available emergency doctor");
-			
-		}
-		if (this->checkBoxTenderness->Checked)
-		{
-			MessageBox::Show("Thank you for updating your health conditions");
-			MessageBox::Show("IPIMS will notify the healthcare provider with the severe conditions");
-			MessageBox::Show("This is an emergency, an alert has been triggered to the available emergency doctor");
-		}
-		if (this->checkBoxBloodUrine->Checked)
-		{
-			MessageBox::Show("Thank you for updating your health conditions");
-			MessageBox::Show("IPIMS will notify the healthcare provider with the severe conditions");
-			MessageBox::Show("This is an emergency, an alert has been triggered to the available emergency doctor");
-		}
-		if (this->checkBoxWheezing->Checked)
-		{
-			MessageBox::Show("Thank you for updating your health conditions");
-			MessageBox::Show("IPIMS will notify the healthcare provider with the severe conditions");
-		}
-		if (this->checkBoxSuicide->Checked)
-		{
-			MessageBox::Show("Thank you for updating your health conditions");
-			MessageBox::Show("IPIMS will notify the healthcare provider with the severe conditions");
-		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		/*if (textBoxSymptoms->Text)
-			{
-			if (checkBoxEmergencyAlert->Checked)
-			MessageBox::Show("Our staff will contact you as soon as possible");
-			else
+			MessageBox::Show("Thank you for updating the health conditions.");
+		//		MessageBox::Show("Our staff will contact you as soon as possible");
 			MessageBox::Show("The symptoms have been saved.");
-			}
-			else
-			MessageBox::Show("Please enter data");
-			*/
 
+			if (this->checkBoxWeakness->Checked || this->checkBoxChestPains->Checked || this->checkBoxTenderness->Checked || this->checkBoxBloodUrine->Checked || this->checkBoxWheezing->Checked || this->checkBoxSuicide->Checked)
+			{
+				MessageBox::Show("IPIMS will notify the healthcare provider with the severe conditions.");
+			}
+
+			if (this->checkBoxWeakness->Checked || this->checkBoxChestPains->Checked || this->checkBoxTenderness->Checked || this->checkBoxBloodUrine->Checked)
+			{
+				MessageBox::Show("This is an emergency, an alert has been triggered to the available emergency doctor.");
+			}			
+			if (this->checkBoxWheezing->Checked)
+			{
+
+			}
+			if (this->checkBoxSuicide->Checked)
+			{
+				MessageBox::Show("Please contact the National Suicide Prevention Line at 1(800)273-8255");
+			}
+		}
+		else{
+			MessageBox::Show("Please enter a description of the symptoms.");
+		}
 	}
 
 	private: System::Void buttonClear_Click(System::Object^  sender, System::EventArgs^  e) {
 		this->textBoxSymptoms->Text = "";
-		//this->checkBoxEmergencyAlert->Checked = false;
+		this->checkBoxWeakness->Checked = false;
+		this->checkBoxChestPains->Checked = false;
+		this->checkBoxTenderness->Checked = false;
+		this->checkBoxWheezing->Checked = false;
+		this->checkBoxBloodUrine->Checked = false;
+		this->checkBoxSuicide->Checked = false;
 	}
 	private: System::Void textBoxSymptoms_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 	}
