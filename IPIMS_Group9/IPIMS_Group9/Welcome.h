@@ -1,6 +1,7 @@
 #include "ScheduleAppointment.h"
 #include "ViewAppointments.h"
 #include "UpdateHealthcareCondition.h"
+#include "EmergencyAlert.h"
 #include <string>
 #include <msclr\marshal_cppstd.h>
 #pragma once
@@ -40,8 +41,9 @@ namespace IPIMS_Group9 {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::MenuStrip^  menuStrip;
+	
 	protected:
+	private: System::Windows::Forms::MenuStrip^  menuStrip;
 	private: System::Windows::Forms::ToolStripMenuItem^  patientServicesToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  searchForPatientToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  updatePatientToolStripMenuItem;
@@ -386,6 +388,12 @@ namespace IPIMS_Group9 {
 		formViewAppts->ShowDialog();
 		this->Show();
 	}
+				private: System::Void searchForPatientToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+					IPIMS_Group9::EmergencyAlert^ formEmergencyAlert = gcnew EmergencyAlert();
+					this->Hide();
+					formEmergencyAlert->ShowDialog();
+					this->Show();
+				}
 private: System::Void ClassificationButton_Click(System::Object^  sender, System::EventArgs^  e) {
 	//just going to create a char for now
 	char classification; //this will eventually be equal to logged in user's classification data from database
