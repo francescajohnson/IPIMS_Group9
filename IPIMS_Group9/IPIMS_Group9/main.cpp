@@ -32,7 +32,10 @@ int main() {
 
 	IPIMS_Group9::UpdateHealthcareCondition formUpdateHealthcareCondition;
 	Application::Run(%formUpdateHealthcareCondition);
-	
+
+	IPIMS_Group9::EmergencyAlert formEmergencyAlert;
+	Application::Run(%formEmergencyAlert);
+
 	/*
 	IPIMS_Group9::PatientSearch formPatientSearch;
 	Application::Run(%formPatientSearch);
@@ -40,9 +43,6 @@ int main() {
 	IPIMS_Group9::EditProfile formEditProfile;
 	Application::Run(%formEditProfile);
 
-	IPIMS_Group9::EmergencyAlert formEmergencyAlert;
-	Application::Run(%formEmergencyAlert);
-	
 	IPIMS_Group9::Welcome formWelcome;
 	Application::Run(%formWelcome);
 	

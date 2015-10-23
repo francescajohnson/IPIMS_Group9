@@ -602,18 +602,13 @@ namespace IPIMS_Group9 {
 			{
 				MessageBox::Show("IPIMS will notify the healthcare provider with the severe conditions.");
 			}
-
-			if (this->checkBoxWeakness->Checked || this->checkBoxChestPains->Checked || this->checkBoxTenderness->Checked || this->checkBoxBloodUrine->Checked)
+			if (this->checkBoxWeakness->Checked || this->checkBoxChestPains->Checked || this->checkBoxTenderness->Checked || this->checkBoxBloodUrine->Checked || this->checkBoxWheezing->Checked)
 			{
 				MessageBox::Show("This is an emergency, an alert has been triggered to the available emergency doctor.");
-			}			
-			if (this->checkBoxWheezing->Checked)
-			{
-
 			}
 			if (this->checkBoxSuicide->Checked)
 			{
-				MessageBox::Show("Please contact the National Suicide Prevention Line at 1(800)273-8255");
+				MessageBox::Show("Please contact the National Suicide Prevention Line at 1(800)273-8255.");
 			}
 		}
 		else{
