@@ -48,6 +48,9 @@
     <ClInclude Include="classificationenummap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ViewPatient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Welcome.cpp">
@@ -81,6 +84,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EPrescription.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewPatient.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

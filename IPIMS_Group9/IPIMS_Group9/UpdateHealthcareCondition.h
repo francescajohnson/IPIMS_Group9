@@ -110,6 +110,12 @@ namespace IPIMS_Group9 {
 			this->buttonSave = (gcnew System::Windows::Forms::Button());
 			this->buttonClear = (gcnew System::Windows::Forms::Button());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->checkBoxSuicide = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBoxWheezing = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBoxBloodUrine = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBoxTenderness = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBoxChestPains = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBoxWeakness = (gcnew System::Windows::Forms::CheckBox());
 			this->menuStrip = (gcnew System::Windows::Forms::MenuStrip());
 			this->patientServicesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->searchForPatientToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -145,12 +151,6 @@ namespace IPIMS_Group9 {
 			this->textBoxFirstName = (gcnew System::Windows::Forms::TextBox());
 			this->labelLastName = (gcnew System::Windows::Forms::Label());
 			this->labelFirstName = (gcnew System::Windows::Forms::Label());
-			this->checkBoxWeakness = (gcnew System::Windows::Forms::CheckBox());
-			this->checkBoxChestPains = (gcnew System::Windows::Forms::CheckBox());
-			this->checkBoxTenderness = (gcnew System::Windows::Forms::CheckBox());
-			this->checkBoxBloodUrine = (gcnew System::Windows::Forms::CheckBox());
-			this->checkBoxWheezing = (gcnew System::Windows::Forms::CheckBox());
-			this->checkBoxSuicide = (gcnew System::Windows::Forms::CheckBox());
 			this->groupBox1->SuspendLayout();
 			this->menuStrip->SuspendLayout();
 			this->groupBoxPersonalInformation->SuspendLayout();
@@ -207,6 +207,79 @@ namespace IPIMS_Group9 {
 			this->groupBox1->TabIndex = 21;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Is the Patient experiencing any of the following\?";
+			// 
+			// checkBoxSuicide
+			// 
+			this->checkBoxSuicide->AutoSize = true;
+			this->checkBoxSuicide->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->checkBoxSuicide->Location = System::Drawing::Point(6, 146);
+			this->checkBoxSuicide->Name = L"checkBoxSuicide";
+			this->checkBoxSuicide->Size = System::Drawing::Size(107, 17);
+			this->checkBoxSuicide->TabIndex = 40;
+			this->checkBoxSuicide->Text = L"Suicidal thoughts";
+			this->checkBoxSuicide->UseVisualStyleBackColor = true;
+			// 
+			// checkBoxWheezing
+			// 
+			this->checkBoxWheezing->AutoSize = true;
+			this->checkBoxWheezing->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->checkBoxWheezing->Location = System::Drawing::Point(6, 123);
+			this->checkBoxWheezing->Name = L"checkBoxWheezing";
+			this->checkBoxWheezing->Size = System::Drawing::Size(148, 17);
+			this->checkBoxWheezing->TabIndex = 39;
+			this->checkBoxWheezing->Text = L"Wheezing while breathing";
+			this->checkBoxWheezing->UseVisualStyleBackColor = true;
+			// 
+			// checkBoxBloodUrine
+			// 
+			this->checkBoxBloodUrine->AutoSize = true;
+			this->checkBoxBloodUrine->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->checkBoxBloodUrine->Location = System::Drawing::Point(6, 100);
+			this->checkBoxBloodUrine->Name = L"checkBoxBloodUrine";
+			this->checkBoxBloodUrine->Size = System::Drawing::Size(150, 17);
+			this->checkBoxBloodUrine->TabIndex = 38;
+			this->checkBoxBloodUrine->Text = L"Blood in the patient\'s urine";
+			this->checkBoxBloodUrine->UseVisualStyleBackColor = true;
+			// 
+			// checkBoxTenderness
+			// 
+			this->checkBoxTenderness->AutoSize = true;
+			this->checkBoxTenderness->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->checkBoxTenderness->Location = System::Drawing::Point(6, 77);
+			this->checkBoxTenderness->Name = L"checkBoxTenderness";
+			this->checkBoxTenderness->Size = System::Drawing::Size(229, 17);
+			this->checkBoxTenderness->TabIndex = 37;
+			this->checkBoxTenderness->Text = L"Tenderness and pain in the back of the leg";
+			this->checkBoxTenderness->UseVisualStyleBackColor = true;
+			// 
+			// checkBoxChestPains
+			// 
+			this->checkBoxChestPains->AutoSize = true;
+			this->checkBoxChestPains->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->checkBoxChestPains->Location = System::Drawing::Point(6, 54);
+			this->checkBoxChestPains->Name = L"checkBoxChestPains";
+			this->checkBoxChestPains->Size = System::Drawing::Size(81, 17);
+			this->checkBoxChestPains->TabIndex = 36;
+			this->checkBoxChestPains->Text = L"Chest pains";
+			this->checkBoxChestPains->UseVisualStyleBackColor = true;
+			// 
+			// checkBoxWeakness
+			// 
+			this->checkBoxWeakness->AutoSize = true;
+			this->checkBoxWeakness->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->checkBoxWeakness->Location = System::Drawing::Point(6, 31);
+			this->checkBoxWeakness->Name = L"checkBoxWeakness";
+			this->checkBoxWeakness->Size = System::Drawing::Size(170, 17);
+			this->checkBoxWeakness->TabIndex = 35;
+			this->checkBoxWeakness->Text = L"Weakness in arms and/or legs";
+			this->checkBoxWeakness->UseVisualStyleBackColor = true;
+			this->checkBoxWeakness->CheckedChanged += gcnew System::EventHandler(this, &UpdateHealthcareCondition::checkBoxWeakness_CheckedChanged);
 			// 
 			// menuStrip
 			// 
@@ -489,78 +562,6 @@ namespace IPIMS_Group9 {
 			this->labelFirstName->TabIndex = 0;
 			this->labelFirstName->Text = L"First Name:";
 			// 
-			// checkBoxWeakness
-			// 
-			this->checkBoxWeakness->AutoSize = true;
-			this->checkBoxWeakness->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->checkBoxWeakness->Location = System::Drawing::Point(6, 31);
-			this->checkBoxWeakness->Name = L"checkBoxWeakness";
-			this->checkBoxWeakness->Size = System::Drawing::Size(170, 17);
-			this->checkBoxWeakness->TabIndex = 35;
-			this->checkBoxWeakness->Text = L"Weakness in arms and/or legs";
-			this->checkBoxWeakness->UseVisualStyleBackColor = true;
-			// 
-			// checkBoxChestPains
-			// 
-			this->checkBoxChestPains->AutoSize = true;
-			this->checkBoxChestPains->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->checkBoxChestPains->Location = System::Drawing::Point(6, 54);
-			this->checkBoxChestPains->Name = L"checkBoxChestPains";
-			this->checkBoxChestPains->Size = System::Drawing::Size(81, 17);
-			this->checkBoxChestPains->TabIndex = 36;
-			this->checkBoxChestPains->Text = L"Chest pains";
-			this->checkBoxChestPains->UseVisualStyleBackColor = true;
-			// 
-			// checkBoxTenderness
-			// 
-			this->checkBoxTenderness->AutoSize = true;
-			this->checkBoxTenderness->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->checkBoxTenderness->Location = System::Drawing::Point(6, 77);
-			this->checkBoxTenderness->Name = L"checkBoxTenderness";
-			this->checkBoxTenderness->Size = System::Drawing::Size(229, 17);
-			this->checkBoxTenderness->TabIndex = 37;
-			this->checkBoxTenderness->Text = L"Tenderness and pain in the back of the leg";
-			this->checkBoxTenderness->UseVisualStyleBackColor = true;
-			// 
-			// checkBoxBloodUrine
-			// 
-			this->checkBoxBloodUrine->AutoSize = true;
-			this->checkBoxBloodUrine->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->checkBoxBloodUrine->Location = System::Drawing::Point(6, 100);
-			this->checkBoxBloodUrine->Name = L"checkBoxBloodUrine";
-			this->checkBoxBloodUrine->Size = System::Drawing::Size(150, 17);
-			this->checkBoxBloodUrine->TabIndex = 38;
-			this->checkBoxBloodUrine->Text = L"Blood in the patient\'s urine";
-			this->checkBoxBloodUrine->UseVisualStyleBackColor = true;
-			// 
-			// checkBoxWheezing
-			// 
-			this->checkBoxWheezing->AutoSize = true;
-			this->checkBoxWheezing->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->checkBoxWheezing->Location = System::Drawing::Point(6, 123);
-			this->checkBoxWheezing->Name = L"checkBoxWheezing";
-			this->checkBoxWheezing->Size = System::Drawing::Size(148, 17);
-			this->checkBoxWheezing->TabIndex = 39;
-			this->checkBoxWheezing->Text = L"Wheezing while breathing";
-			this->checkBoxWheezing->UseVisualStyleBackColor = true;
-			// 
-			// checkBoxSuicide
-			// 
-			this->checkBoxSuicide->AutoSize = true;
-			this->checkBoxSuicide->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->checkBoxSuicide->Location = System::Drawing::Point(6, 146);
-			this->checkBoxSuicide->Name = L"checkBoxSuicide";
-			this->checkBoxSuicide->Size = System::Drawing::Size(107, 17);
-			this->checkBoxSuicide->TabIndex = 40;
-			this->checkBoxSuicide->Text = L"Suicidal thoughts";
-			this->checkBoxSuicide->UseVisualStyleBackColor = true;
-			// 
 			// UpdateHealthcareCondition
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -687,5 +688,7 @@ private: System::Void textBoxFirstName_TextChanged(System::Object^  sender, Syst
 		formViewAppts->ShowDialog();
 		this->Show();
 	}*/
-	};
+	private: System::Void checkBoxWeakness_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+	}
+};
 }

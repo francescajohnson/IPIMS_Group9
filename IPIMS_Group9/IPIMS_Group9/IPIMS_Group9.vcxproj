@@ -89,6 +89,7 @@
     <ClCompile Include="ScheduleAppointment.cpp" />
     <ClCompile Include="UpdateHealthcareCondition.cpp" />
     <ClCompile Include="ViewAppointments.cpp" />
+    <ClCompile Include="ViewPatient.cpp" />
     <ClCompile Include="Welcome.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +121,9 @@
     <ClInclude Include="ViewAppointments.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ViewPatient.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Welcome.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -142,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewAppointments.resx">
       <DependentUpon>ViewAppointments.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewPatient.resx">
+      <DependentUpon>ViewPatient.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Welcome.resx">
       <DependentUpon>Welcome.h</DependentUpon>
